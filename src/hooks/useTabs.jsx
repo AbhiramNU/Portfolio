@@ -5,7 +5,7 @@ const TabContext = createContext();
 
 export const TabProvider = ({ children }) => {
   const [files] = useState(initialFiles);
-  const [activeTab, setActiveTab] = useState('about.tsx');
+  const [activeTab, setActiveTab] = useState('README.md');
   const [openTabs, setOpenTabs] = useState([files[0]]);
 
   const openFile = (fileName) => {
