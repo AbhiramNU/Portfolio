@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAssistant } from '../hooks/useAssistant';
 import { Send, Bot, User, PenSquare, X } from 'lucide-react';
-import { motion } from 'framer-motion';
 
-export default function RightSidebar() {
+export default function RightSidebar({ onClose }) {
   const { messages, sendMessage, queryCount, limitReached } = useAssistant();
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
@@ -20,19 +19,19 @@ export default function RightSidebar() {
   };
 
   return (
-    <div className="w-[320px] h-full bg-[#1e1e1e] border-l border-[#2b2b2b] flex flex-col shrink-0 font-sans">
-      <div className="h-[40px] px-4 flex items-center justify-between border-b border-[#2b2b2b]">
+    <div className="w-[320px] h-full bg-[#1e1e1e] border-l border-[#2b2b2b] flex flex-col shrink-0 font-sans z-10 box-border">
+      <div className="h-[40px] px-4 flex items-center justify-between border-b border-[#2b2b2b] shrink-0">
         <div className="flex items-center text-[#e5e5e5] text-[12px] font-semibold">
           <Bot size={14} className="mr-2 text-[#a855f7]" />
           Abhiram's AI Assistant
         </div>
         <div className="flex items-center space-x-3 text-[#858585]">
           <PenSquare size={14} className="cursor-pointer hover:text-white" />
-          <X size={16} className="cursor-pointer hover:text-white" />
+          <X size={16} className="cursor-pointer hover:text-white" onClick={onClose} />
         </div>
       </div>
       
-      <div className="px-4 py-2 border-b border-[#2b2b2b]">
+      <div className="px-4 py-2 border-b border-[#2b2b2b] shrink-0">
          <div className="text-[10px] text-[#858585] mb-1 font-bold">WORKSPACE</div>
          <div className="bg-[#2d2d2d] border border-[#3c3c3c] rounded px-2 py-1 text-[11px] text-[#007acc] inline-block">
             ● portfolio - abhiram
@@ -60,7 +59,7 @@ export default function RightSidebar() {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4 border-t border-[#2b2b2b] bg-[#1e1e1e]">
+      <div className="p-4 border-t border-[#2b2b2b] bg-[#1e1e1e] shrink-0">
         <div className="flex items-center justify-center text-[11px] text-[#cca700] mb-3 font-semibold space-x-1">
            <span className="text-[#cca700]">⚡</span>
            <span>{3 - queryCount} message{3 - queryCount !== 1 ? 's' : ''} left, support Abhiram!</span>

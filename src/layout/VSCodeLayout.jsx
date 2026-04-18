@@ -10,6 +10,8 @@ import Terminal from '../components/Terminal';
 export default function VSCodeLayout() {
   const [activeActivityTab, setActiveActivityTab] = useState('files');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(true);
+  const [isAssistantOpen, setIsAssistantOpen] = useState(true);
 
   const toggleActivityTab = (tab) => {
     if (activeActivityTab === tab && isSidebarOpen) {
@@ -28,11 +30,14 @@ export default function VSCodeLayout() {
         <Sidebar isOpen={isSidebarOpen && activeActivityTab === 'files'} />
         <div className="flex-1 flex flex-col min-w-0">
           <Editor />
-          <Terminal />
+          {isTerminalOpen && <Terminal onClose={() => setIsTerminalOpen(false)} />}
         </div>
-        <RightSidebar />
+        {isAssistantOpen && <RightSidebar onClose={() => setIsAssistantOpen(false)} />}
       </div>
-      <StatusBar />
+      <StatusBar 
+        toggleAssistant={() => setIsAssistantOpen(!isAssistantOpen)} 
+        isAssistantOpen={isAssistantOpen} 
+      />
     </div>
   );
 }

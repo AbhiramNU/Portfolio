@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
-export default function Terminal() {
+export default function Terminal({ onClose }) {
   const [activeTab, setActiveTab] = useState('TERMINAL');
 
   return (
-    <div className="h-64 w-full bg-[#1e1e1e] border-t border-[#2b2b2b] flex flex-col font-mono text-[13px] shrink-0 z-10">
-      <div className="flex justify-between items-center px-4 h-9 mt-1">
+    <div className="h-64 w-full bg-[#1e1e1e] border-t border-[#2b2b2b] flex flex-col font-mono text-[13px] shrink-0 z-10 box-border">
+      <div className="flex justify-between items-center px-4 h-9 mt-1 shrink-0">
         <div className="flex space-x-6 uppercase text-[11px] tracking-widest font-semibold flex-1">
           {['TERMINAL', 'PROBLEMS', 'OUTPUT'].map(tab => (
             <span 
@@ -18,7 +18,7 @@ export default function Terminal() {
             </span>
           ))}
         </div>
-        <X size={16} className="text-[#858585] cursor-pointer hover:text-white" />
+        <X size={16} className="text-[#858585] cursor-pointer hover:text-white" onClick={onClose} />
       </div>
       <div className="flex-1 p-4 overflow-auto custom-scrollbar text-[#cccccc]">
         {activeTab === 'TERMINAL' && (
