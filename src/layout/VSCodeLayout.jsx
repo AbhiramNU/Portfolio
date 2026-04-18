@@ -10,8 +10,8 @@ import Terminal from '../components/Terminal';
 export default function VSCodeLayout() {
   const [activeActivityTab, setActiveActivityTab] = useState('files');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isTerminalOpen, setIsTerminalOpen] = useState(true);
-  const [isAssistantOpen, setIsAssistantOpen] = useState(true);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
   const toggleActivityTab = (tab) => {
     if (activeActivityTab === tab && isSidebarOpen) {

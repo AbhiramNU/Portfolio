@@ -5,26 +5,33 @@ import { useCursor } from './hooks/useCursor';
 import { motion } from 'framer-motion';
 
 function App() {
-  const { position, isHovering } = useCursor();
+  const { x, y, isHovering, isVisible } = useCursor();
 
   return (
     <TabProvider>
       <motion.div
-        className="fixed top-0 left-0 w-5 h-5 border-2 border-vs-accent pointer-events-none z-[9999] rounded-sm hidden md:flex items-center justify-center shadow-[0_0_10px_rgba(0,122,204,0.5)] bg-vs-accent/20"
+        className="fixed top-0 left-0 w-6 h-6 border-[1.5px] border-vs-accent pointer-events-none z-[9999] rounded-sm hidden md:flex items-center justify-center mix-blend-difference"
+        style={{
+          x,
+          y,
+          translateX: '-50%',
+          translateY: '-50%',
+          opacity: isVisible ? 1 : 0,
+        }}
         animate={{
-          x: position.x - 10,
-          y: position.y - 10,
           scale: isHovering ? 1.5 : 1,
-          borderColor: isHovering ? '#ffffff' : '#007acc',
           rotate: isHovering ? 45 : 0,
+          borderColor: isHovering ? '#ffffff' : '#007acc',
+          backgroundColor: isHovering ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 122, 204, 0.05)',
         }}
         transition={{
-          type: 'spring',
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5
+          scale: { type: 'spring', stiffness: 300, damping: 20 },
+          rotate: { type: 'spring', stiffness: 200, damping: 15 },
+          borderColor: { duration: 0.15 },
         }}
-      />
+      >
+        <div className={`w-1 h-1 rounded-full ${isHovering ? 'bg-white' : 'bg-[#007acc]'} transition-colors duration-200`} />
+      </motion.div>
       <VSCodeLayout />
     </TabProvider>
   );
