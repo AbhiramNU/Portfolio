@@ -1,0 +1,31 @@
+﻿node.exe : 
+[31m[vite:build-import-analysis] Parse 
+error @:34:27[39m
+At C:\Program Files\nodejs\npx.ps1:29 
+char:3
++   & $NODE_EXE $NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified 
+   : ([31m[vite:buil...or @:34:27[39m:S  
+  tring) [], RemoteException
+    + FullyQualifiedErrorId : NativeComman 
+   dError
+ 
+file: [36mD:/vscode-portfolio/src/hooks/us
+eTabs.js:34:26[39m
+[33m32:     <TabContext.Provider value={{ 
+files, openTabs, activeTab, openFile, 
+closeTab, setActiveTab }}>
+33:       {children}
+34:     </TabContext.Provider>
+                              ^
+35:   );
+36: };[39m
+[31merror during build:
+Error: Parse error @:34:27
+    at parse$e (file:///D:/vscode-portfolio
+/node_modules/vite/dist/node/chunks/dep-827
+b23df.js:16498:355)
+    at Object.transform (file:///D:/vscode-
+portfolio/node_modules/vite/dist/node/chunk
+s/dep-827b23df.js:46657:27)[39m
