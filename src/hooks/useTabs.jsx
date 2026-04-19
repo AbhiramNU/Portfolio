@@ -28,8 +28,13 @@ export const TabProvider = ({ children }) => {
     }
   };
 
+  const closeAllTabs = () => {
+    setOpenTabs([]);
+    setActiveTab(null);
+  };
+
   return (
-    <TabContext.Provider value={{ files, openTabs, activeTab, openFile, closeTab, setActiveTab }}>
+    <TabContext.Provider value={{ files, openTabs, activeTab, openFile, closeTab, closeAllTabs, setActiveTab }}>
       {children}
     </TabContext.Provider>
   );

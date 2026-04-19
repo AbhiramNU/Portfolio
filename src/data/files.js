@@ -86,5 +86,10 @@ export default Home;`
     content: `# Abhiram's Portfolio
 
 Welcome to my interactive developer portfolio.`
+  },
+  {
+    name: 'Abhiram_N_Udupa_Resume.pdf',
+    type: 'pdf',
+    content: `// Placeholder for PDF`
   }
 ];

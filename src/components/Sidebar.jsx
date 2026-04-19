@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import { X, ChevronDown, ChevronRight, FileJson, FileText, FileCode, Bot } from 'lucide-react';
 import { useTabs } from '../hooks/useTabs';
+import { getFileIcon } from '../editor/Tabs';
+import { Sparkles } from 'lucide-react';
 
-const getIcon = (name) => {
-  if (name.endsWith('.tsx') || name.endsWith('.ts')) return <span className="text-[#3178c6] font-bold text-[10px] w-4 text-center">TS</span>;
-  if (name.endsWith('.js')) return <span className="text-[#f7df1e] font-bold text-[10px] w-4 text-center">JS</span>;
-  if (name.endsWith('.json')) return <FileJson size={14} className="text-[#cbcc56]" />;
-  if (name.endsWith('.css')) return <span className="text-[#264de4] font-bold text-[10px] w-4 text-center">#</span>;
-  if (name.endsWith('.html')) return <span className="text-[#e34c26] font-bold text-[10px] w-4 text-center">&lt;&gt;</span>;
-  if (name.endsWith('.md')) return <FileText size={14} className="text-[#007acc]" />;
-  return <FileText size={14} className="text-gray-400" />;
-};
-
-export default function Sidebar({ isOpen }) {
+export default function Sidebar({ isOpen, onCopilotClick }) {
   const [expanded, setExpanded] = useState(true);
   const { files, openFile, activeTab } = useTabs();
 
@@ -44,13 +36,27 @@ export default function Sidebar({ isOpen }) {
                 }`}
               >
                 <div className="flex items-center justify-center w-5">
-                  {getIcon(file.name)}
+                  {getFileIcon(file.name)}
                 </div>
                 <span className="ml-[6px] font-sans text-[13px]">{file.name}</span>
               </div>
             ))}
           </div>
         )}
+      </div>
+      
+      {/* Copilot Button */}
+      <div className="p-4 mt-auto border-t border-[#3c3c3c]/30">
+        <div 
+          onClick={onCopilotClick}
+          className="w-full bg-[#1e1e1e] border border-[#3c3c3c] hover:border-[#a855f7]/60 hover:bg-[#2d1b4e]/30 rounded-md py-2.5 px-3 flex items-center justify-between cursor-pointer group transition-all"
+        >
+          <div className="flex items-center text-[#a855f7] font-semibold text-[12px] group-hover:text-[#c084fc] transition-colors">
+            <Sparkles size={14} className="mr-2" />
+            Abhiram's Copilot
+          </div>
+          <span className="text-[10px] text-[#858585] font-bold group-hover:text-[#a855f7] transition-colors">AI</span>
+        </div>
       </div>
     </div>
   );

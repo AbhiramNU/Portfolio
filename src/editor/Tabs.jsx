@@ -3,6 +3,19 @@ import { useTabs } from '../hooks/useTabs';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+export const getFileIcon = (name) => {
+  const base = "w-[16px] h-[16px] flex items-center justify-center rounded-[3px] font-bold text-[9px] mr-[6px] flex-shrink-0 tracking-tighter";
+  if (name.endsWith('.tsx')) return <span className="text-[#61dafb] mr-[6px] font-bold text-[15px] leading-none flex-shrink-0 mb-[1px]">⚛</span>;
+  if (name.endsWith('.ts')) return <span className={`${base} bg-[#3178c6] text-white`}>TS</span>;
+  if (name.endsWith('.js')) return <span className={`${base} bg-[#f7df1e] text-black`}>JS</span>;
+  if (name.endsWith('.html')) return <span className={`${base} bg-[#e34f26] text-white`}>5</span>;
+  if (name.endsWith('.json')) return <span className={`${base} bg-[#4d5a2e] text-[#a8cb76]`}>{'{ }'}</span>;
+  if (name.endsWith('.css')) return <span className={`${base} bg-[#264de4] text-white`}>3</span>;
+  if (name.endsWith('.md')) return <span className={`${base} bg-[#1d5c7b] text-[#56b6c2] tracking-normal`}>M↓</span>;
+  if (name.endsWith('.pdf')) return <span className={`${base} border border-[#f14c4c] text-[#f14c4c] text-[8px] tracking-normal bg-transparent`}>PDF</span>;
+  return <div className={`w-[8px] h-[8px] rounded-full mr-[8px] flex-shrink-0 bg-[#e3d04c]`} />;
+};
+
 export default function Tabs() {
   const { openTabs, activeTab, setActiveTab, closeTab } = useTabs();
 
@@ -23,7 +36,7 @@ export default function Tabs() {
                 : 'bg-transparent text-[#858585] hover:bg-[#2d2d2d] border-t-2 border-t-transparent border-r border-r-[#3c3c3c]'
             }`}
           >
-            <div className={`w-[8px] h-[8px] rounded-full mr-[8px] ${tab.name.endsWith('.ai') ? 'bg-[#007acc]' : 'bg-[#e3d04c]'}`} />
+            {getFileIcon(tab.name)}
             <span className="text-[13px] font-mono mr-[8px] whitespace-nowrap">{tab.name}</span>
             <div
               className={`p-[2px] rounded hover:bg-[#3c3c3c] transition-colors ${
