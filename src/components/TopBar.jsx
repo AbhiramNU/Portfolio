@@ -16,7 +16,31 @@ const MenuItem = ({ label, shortcut, onClick, className = "", bold = false }) =>
 
 const MenuDivider = () => <div className="h-[1px] bg-[#3c3c3c] my-1"></div>;
 
-export default function TopBar({ onSearchClick, onToggleSidebar, onToggleTerminal, onToggleCopilot }) {
+const PanelLeftIcon = ({ active }) => (
+  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <rect x="1.5" y="1.5" width="13" height="13" rx="1.5" />
+    <path d="M1.5 3C1.5 2.17 2.17 1.5 3 1.5H5.5V14.5H3C2.17 14.5 1.5 13.82 1.5 13V3Z" fill="currentColor" stroke="none" opacity={active ? 1 : 0.3}/>
+    <line x1="5.5" y1="1.5" x2="5.5" y2="14.5" stroke="currentColor" strokeWidth="1.2" />
+  </svg>
+);
+
+const PanelBottomIcon = ({ active }) => (
+  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <rect x="1.5" y="1.5" width="13" height="13" rx="1.5" />
+    <path d="M1.5 10.5H14.5V13C14.5 13.82 13.82 14.5 13 14.5H3C2.17 14.5 1.5 13.82 1.5 13V10.5Z" fill="currentColor" stroke="none" opacity={active ? 1 : 0.3}/>
+    <line x1="1.5" y1="10.5" x2="14.5" y2="10.5" stroke="currentColor" strokeWidth="1.2" />
+  </svg>
+);
+
+const PanelRightIcon = ({ active }) => (
+  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <rect x="1.5" y="1.5" width="13" height="13" rx="1.5" />
+    <path d="M10.5 1.5H13C13.82 1.5 14.5 2.17 14.5 3V13C14.5 13.82 13.82 14.5 13 14.5H10.5V1.5Z" fill="currentColor" stroke="none" opacity={active ? 1 : 0.3}/>
+    <line x1="10.5" y1="1.5" x2="10.5" y2="14.5" stroke="currentColor" strokeWidth="1.2" />
+  </svg>
+);
+
+export default function TopBar({ onSearchClick, onToggleSidebar, onToggleTerminal, onToggleCopilot, isSidebarOpen, isTerminalOpen, isAssistantOpen }) {
   const [activeMenu, setActiveMenu] = useState(null);
   const menuRef = useRef(null);
   const { files, openFile, activeTab, closeTab, closeAllTabs } = useTabs();
@@ -167,10 +191,23 @@ export default function TopBar({ onSearchClick, onToggleSidebar, onToggleTermina
           <TopButton name="Help" />
         </div>
       </div>
-      <div className="flex-1 flex justify-center max-w-lg absolute left-1/2 transform -translate-x-1/2">
-        <div onClick={onSearchClick} className="bg-[#2d2d2d] hover:bg-[#333333] cursor-pointer text-[#cccccc] border border-[#3c3c3c] hover:border-[#569cd6] rounded-md px-3 py-[2.5px] text-[12px] flex items-center justify-center w-[350px] shadow-sm transition-colors">
-          <span className="mr-2 text-[#007acc]">🔍</span>
-          <span>abhiram : portfolio <span className="opacity-40 ml-4 font-mono">Ctrl P</span></span>
+      <div className="flex-1 flex justify-center absolute left-1/2 transform -translate-x-1/2">
+        <div className="flex items-center gap-3">
+          <div onClick={onSearchClick} className="bg-[#2d2d2d] hover:bg-[#333333] cursor-pointer text-[#cccccc] border border-[#3c3c3c] hover:border-[#569cd6] rounded-md px-3 py-[3px] text-[12px] flex items-center justify-center w-[320px] shadow-sm transition-colors">
+            <span className="mr-2 text-[#007acc]">🔍</span>
+            <span>abhiram : portfolio <span className="opacity-40 ml-4 font-mono">Ctrl P</span></span>
+          </div>
+          <div className="hidden lg:flex items-center gap-0.5">
+            <div onClick={onToggleSidebar} className={`cursor-pointer p-1 rounded hover:bg-white/10 transition-colors ${isSidebarOpen ? 'text-[#cccccc]' : 'text-[#858585]'}`}>
+              <PanelLeftIcon active={isSidebarOpen} />
+            </div>
+            <div onClick={onToggleTerminal} className={`cursor-pointer p-1 rounded hover:bg-white/10 transition-colors ${isTerminalOpen ? 'text-[#cccccc]' : 'text-[#858585]'}`}>
+              <PanelBottomIcon active={isTerminalOpen} />
+            </div>
+            <div onClick={onToggleCopilot} className={`cursor-pointer p-1 rounded hover:bg-white/10 transition-colors ${isAssistantOpen ? 'text-[#cccccc]' : 'text-[#858585]'}`}>
+              <PanelRightIcon active={isAssistantOpen} />
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex items-center">

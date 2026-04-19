@@ -33,6 +33,9 @@ export default function VSCodeLayout() {
         onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
         onToggleTerminal={() => setIsTerminalOpen(!isTerminalOpen)}
         onToggleCopilot={() => setIsAssistantOpen(!isAssistantOpen)}
+        isSidebarOpen={isSidebarOpen}
+        isTerminalOpen={isTerminalOpen}
+        isAssistantOpen={isAssistantOpen}
       />
       <div className="flex flex-1 overflow-hidden min-h-0">
         <ActivityBar 

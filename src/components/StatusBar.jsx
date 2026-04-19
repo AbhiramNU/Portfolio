@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTabs } from '../hooks/useTabs';
-import { GitBranch, XCircle, AlertTriangle, CheckCheck, Bot } from 'lucide-react';
+import { GitBranch, XCircle, AlertTriangle, CheckCheck, Bot, Bell } from 'lucide-react';
 
 export default function StatusBar({ toggleAssistant, isAssistantOpen }) {
   const { activeTab } = useTabs();
@@ -36,11 +36,16 @@ export default function StatusBar({ toggleAssistant, isAssistantOpen }) {
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">Copilot</span>
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">TypeScript React</span>
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">UTF-8</span>
-          <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">Prettier</span>
-          <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide font-medium flex items-center text-[#c296e6]">
-            <Heart fill="#c296e6" size={12} className="mr-1.5" /> Abhiram Dark
+          <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide font-medium flex items-center text-[#ffffff]">
+            <Heart fill="#ffffff" size={12} className="mr-1.5" /> Dark Theme
           </span>
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">10:31</span>
+        </div>
+        <div className="flex items-center ml-2 border-l border-white/20 pl-2">
+          <div className="hover:bg-white/20 p-1 rounded cursor-pointer transition-colors relative" onClick={() => alert("No new notifications")}>
+            <Bell size={13.5} />
+            <div className="absolute top-[3px] right-[3px] w-1.5 h-1.5 bg-[#a855f7] rounded-full border border-[#007acc]"></div>
+          </div>
         </div>
       </div>
     </div>
