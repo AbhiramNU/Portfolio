@@ -13,6 +13,7 @@ export const getFileIcon = (name) => {
   if (name.endsWith('.css')) return <span className={`${base} bg-[#264de4] text-white`}>3</span>;
   if (name.endsWith('.md')) return <span className={`${base} bg-[#1d5c7b] text-[#56b6c2] tracking-normal`}>M↓</span>;
   if (name.endsWith('.pdf')) return <span className={`${base} border border-[#f14c4c] text-[#f14c4c] text-[8px] tracking-normal bg-transparent`}>PDF</span>;
+  if (name.endsWith('.log')) return <span className={`${base} bg-[#f14c4c] text-[#ffffff] font-bold`}>!</span>;
   return <div className={`w-[8px] h-[8px] rounded-full mr-[8px] flex-shrink-0 bg-[#e3d04c]`} />;
 };
 

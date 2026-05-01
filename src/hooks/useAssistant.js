@@ -6,30 +6,61 @@ export const useAssistant = () => {
   ]);
   const [queryCount, setQueryCount] = useState(0);
 
-  const sendMessage = (text) => {
+  const sendMessage = async (text) => {
     if (queryCount >= 3) return;
 
+    // Immediately push user message
     setMessages(prev => [...prev, { text, sender: "user" }]);
     const nextCount = queryCount + 1;
     setQueryCount(nextCount);
 
-    setTimeout(() => {
-      let reply = "I'm sorry, I don't quite understand. Try asking about Abhiram's 'skills', 'projects', or how to 'support' him.";
-      const lowerText = text.toLowerCase();
+    try {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       
-      if (lowerText.includes("support")) reply = "If you want to support Abhiram, feel free to check out his LinkedIn or GitHub in the contact.css tab, or reach out at abhiramnudupa@gmail.com! Every bit helps.";
-      else if (lowerText.includes("stack") || lowerText.includes("skill")) reply = "Abhiram's tech stack is quite diverse. He's skilled in Python, FastAPI, and React for backend/frontend work. He also works with GenAI technologies like LangChain and RAG pipelines, plus tools like Docker and PostgreSQL. Check the skills.json tab!";
-      else if (lowerText.includes("project")) reply = "He's built robust systems like VoltStrata Energy Intel, SentriCam Dashboard, and PaperSmith Templates! See projects.js for a deep dive.";
-      else if (lowerText.includes("contact")) reply = "You can reach him directly at abhiramnudupa@gmail.com or via the secure form in contact.css.";
-      else if (lowerText.includes("about") || lowerText.includes("who")) reply = "Abhiram is a software developer from NMAMIT focused on building genuinely intelligent and scalable AI & backend systems. Open about.html to learn more!";
-      else if (lowerText.includes("edu") || lowerText.includes("college")) reply = "He studies Computer Science with a minor in AI/ML at NMAMIT (2021-2025).";
+      if (!apiKey || apiKey === "your_gemini_api_key_here") {
+         setMessages(prev => [...prev, { text: "Error: VITE_GEMINI_API_KEY is missing. Please add it to your .env.local file to enable AI responses!", sender: "ai" }]);
+         return;
+      }
+
+      const systemPrompt = `You are "Abhiram's Copilot", an AI assistant embedded in Abhiram N Udupa's developer portfolio. 
+Your goal is to answer questions about Abhiram professionally, concisely, and with a friendly tone. Keep responses under 3 sentences.
+Here is the data you know about him:
+- Name: Abhiram N Udupa
+- Role: Junior Software Developer
+- Education: Computer Science with a minor in AI/ML at NMAMIT (2021-2025).
+- Tech Stack: Python, TypeScript, SQL, JavaScript, Java, PyTorch, LangChain, HuggingFace, FastAPI, Flask, Docker, AWS, Linux, Git.
+- Projects:
+  1. VoltStrata Energy Intel: Deployed a robust machine learning platform for energy intelligence. Automated binary classification parameters and integrated absolute path resolution for reliable cloud deployment logic using Python and Scikit-Learn.
+  2. SentriCam Dashboard: Headless FastAPI backend streaming live video to a Next.js frontend dashboard. Features browser-based face enrollment and real-time event logging via Prisma SQLite.
+  3. Parixa Platform: End-to-end full stack architecture deployed using Vercel serverless functions. Optimized for ultra-low latency and scalable database operations using React and Node.js.
+  4. PaperSmith Templates: An in-place template editor feature allowing the robust generation of dynamic structures, empowered by Generative AI and Python.
+- Contact: abhiramnudupa@gmail.com, GitHub: abhiramnudupa, LinkedIn: abhiram-n-udupa.
+- Interests: AI integrations, NLP, LLMs, RAG pipelines, painting, photography, music.
+If asked something outside this scope, politely say you only have access to Abhiram's professional portfolio data.`;
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: {
+            parts: [{ text: systemPrompt }]
+          },
+          contents: [{ parts: [{ text }] }]
+        })
+      });
+
+      const data = await response.json();
+      let reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I encountered an error processing that request.";
 
       if (nextCount >= 3) {
-        reply += " (Query limit reached. Restart IDE to refresh limits.)";
+        reply += "\n\n*(Query limit reached. Restart IDE to refresh limits.)*";
       }
 
       setMessages(prev => [...prev, { text: reply, sender: "ai" }]);
-    }, 600);
+    } catch (error) {
+      console.error(error);
+      setMessages(prev => [...prev, { text: "Failed to connect to the Gemini API. Please check your network or API key.", sender: "ai" }]);
+    }
   };
 
   return { messages, sendMessage, queryCount, limitReached: queryCount >= 3 };

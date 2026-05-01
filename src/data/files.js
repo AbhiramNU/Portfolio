@@ -91,5 +91,10 @@ Welcome to my interactive developer portfolio.`
     name: 'Abhiram_N_Udupa_Resume.pdf',
     type: 'pdf',
     content: `// Placeholder for PDF`
+  },
+  {
+    name: '404_ERROR.log',
+    type: 'log',
+    content: `// Dynamic 404 Stack Trace`
   }
 ];
