@@ -5,6 +5,21 @@ import { GitBranch, XCircle, AlertTriangle, CheckCheck, Bot, Bell } from 'lucide
 export default function StatusBar({ toggleAssistant, isAssistantOpen }) {
   const { activeTab } = useTabs();
   
+  const triggerFlashbang = () => {
+    document.body.classList.add('flashbang-active');
+    
+    // Create the error toast element dynamically
+    const errorToast = document.createElement('div');
+    errorToast.className = 'fixed top-12 left-1/2 transform -translate-x-1/2 bg-[#f14c4c] text-white px-6 py-4 rounded shadow-2xl z-[9999] font-mono text-[14px] font-bold tracking-wide border-2 border-black flex items-center gap-3 opacity-90';
+    errorToast.innerHTML = '<span class="text-2xl">⚠️</span> CRITICAL ERROR: Nobody actually uses Light Theme. Operation Aborted.';
+    document.body.appendChild(errorToast);
+
+    setTimeout(() => {
+      document.body.classList.remove('flashbang-active');
+      errorToast.remove();
+    }, 2500);
+  };
+  
   return (
     <div className="h-[22px] w-full bg-[#007acc] text-[#ffffff] flex items-center justify-between px-3 text-[12px] select-none shrink-0 font-sans z-50">
       <div className="flex items-center gap-2 h-full">
@@ -36,7 +51,10 @@ export default function StatusBar({ toggleAssistant, isAssistantOpen }) {
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">Copilot</span>
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">TypeScript React</span>
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">UTF-8</span>
-          <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide font-medium flex items-center text-[#ffffff]">
+          <span 
+            className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide font-medium flex items-center text-[#ffffff]"
+            onClick={triggerFlashbang}
+          >
             <Heart fill="#ffffff" size={12} className="mr-1.5" /> Dark Theme
           </span>
           <span className="hover:bg-white/20 px-1 py-0.5 rounded cursor-pointer transition-colors tracking-wide">10:31</span>

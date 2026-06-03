@@ -8,6 +8,8 @@ import SkillsPreview from './SkillsPreview';
 import ExperiencePreview from './ExperiencePreview';
 import ContactPreview from './ContactPreview';
 import ResumePreview from './ResumePreview';
+import CertificationsPreview from './CertificationsPreview';
+import ActivitiesPreview from './ActivitiesPreview';
 
 import { ShieldAlert } from 'lucide-react';
 
@@ -58,6 +60,12 @@ export default function FileRouter({ content, type, name }) {
   }
   if (name === 'Abhiram_N_Udupa_Resume.pdf') {
     return <ResumePreview />;
+  }
+  if (name === 'certifications.ipynb') {
+    return <CertificationsPreview />;
+  }
+  if (name === 'extra_curricular.sql') {
+    return <ActivitiesPreview />;
   }
   return <CodeViewer content={content} type={type} />;
 }

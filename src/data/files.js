@@ -57,6 +57,16 @@ export default Home;`
 }`
   },
   {
+    name: 'certifications.ipynb',
+    type: 'ipynb',
+    content: `// Placeholder`
+  },
+  {
+    name: 'extra_curricular.sql',
+    type: 'sql',
+    content: `// Placeholder`
+  },
+  {
     name: 'experience.ts',
     type: 'typescript',
     content: `export const experiences = [
