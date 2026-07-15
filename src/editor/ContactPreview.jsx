@@ -97,7 +97,7 @@ export default function ContactPreview() {
           <div>
             <h2 className="text-[#4ec9b0] font-bold tracking-widest text-[12px] uppercase mb-4">SEND A MESSAGE</h2>
             
-            <form action="https://formspree.io/f/mzdygyyn" method="POST" className="mt-4 flex flex-col space-y-6">
+            <form action="https://formspree.io/f/mrenegln" method="POST" className="mt-4 flex flex-col space-y-6">
               <div>
                 <label className="block text-[#858585] text-[11px] font-mono mb-2.5 font-bold tracking-wide">
                   // YOUR_NAME <span className="text-[#f14c4c]">*</span>
