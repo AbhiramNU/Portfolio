@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Linkedin, Github, Monitor, Database, Link as LinkIcon, Youtube, Instagram, ArrowUpRight } from 'lucide-react';
+import { Mail, Linkedin, Github, Monitor, Link as LinkIcon, Instagram, Twitter, ArrowUpRight } from 'lucide-react';
 
 const SocialLink = ({ platform, link, icon: Icon, colorClass, borderHoverClass }) => (
   <a href={link.startsWith('http') ? link : `https://${link}`} target="_blank" rel="noopener noreferrer" className={`flex items-center justify-between border-b border-[#3c3c3c] py-4 group hover:bg-[#252526] px-3 transition-colors -mx-3 rounded-sm`}>
@@ -43,56 +43,49 @@ export default function ContactPreview() {
             <div className="flex flex-col border-t border-[#3c3c3c]">
               <SocialLink 
                 platform="Gmail" 
-                link="abhiramnudupa@gmail.com" 
+                link="mailto:abhiram.udupa@gmail.com" 
                 icon={Mail} 
                 colorClass="text-[#4ec9b0]" 
                 borderHoverClass="group-hover:border-[#4ec9b0]"
               />
               <SocialLink 
                 platform="LinkedIn" 
-                link="linkedin.com/in/abhiram-n-udupa" 
+                link="linkedin.com/in/abhiramnu" 
                 icon={Linkedin} 
                 colorClass="text-[#0a66c2]" 
                 borderHoverClass="group-hover:border-[#0a66c2]"
               />
               <SocialLink 
                 platform="GitHub" 
-                link="github.com/abhiramnudupa" 
+                link="github.com/AbhiramNU" 
                 icon={Github} 
                 colorClass="text-[#cccccc]" 
                 borderHoverClass="group-hover:border-[#cccccc]"
               />
               <SocialLink 
                 platform="Medium" 
-                link="medium.com/@abhiramnudupa" 
+                link="medium.com/@abhiram.udupa" 
                 icon={Monitor} 
                 colorClass="text-[#cccccc]" 
                 borderHoverClass="group-hover:border-[#cccccc]"
               />
               <SocialLink 
-                platform="Tableau" 
-                link="Tableau Public Vizzes" 
-                icon={Database} 
-                colorClass="text-[#e97b39]" 
-                borderHoverClass="group-hover:border-[#e97b39]"
-              />
-              <SocialLink 
                 platform="LeetCode" 
-                link="leetcode.com/abhiramnudupa" 
+                link="leetcode.com/u/AbhiramNU" 
                 icon={LinkIcon} 
                 colorClass="text-[#ffa116]" 
                 borderHoverClass="group-hover:border-[#ffa116]"
               />
               <SocialLink 
-                platform="YouTube" 
-                link="youtube.com/@abhiramnudupa" 
-                icon={Youtube} 
-                colorClass="text-[#ff0000]" 
-                borderHoverClass="group-hover:border-[#ff0000]"
+                platform="X (Twitter)" 
+                link="x.com/narendramodi" 
+                icon={Twitter} 
+                colorClass="text-white" 
+                borderHoverClass="group-hover:border-white"
               />
               <SocialLink 
                 platform="Instagram" 
-                link="instagram.com/abhiramnudupa" 
+                link="instagram.com/abhi_udupa00" 
                 icon={Instagram} 
                 colorClass="text-[#e1306c]" 
                 borderHoverClass="group-hover:border-[#e1306c]"

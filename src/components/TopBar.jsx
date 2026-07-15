@@ -165,7 +165,7 @@ export default function TopBar({ onSearchClick, onToggleSidebar, onToggleTermina
           <div className="px-6 py-1"><span className="bg-[#3c3c3c]/50 text-[#cccccc] px-2 py-0.5 rounded text-[11px] font-mono mr-4 inline-block w-[110px] text-center">Ctrl+Shift+C</span> <span className="text-[#858585]">Toggle Copilot ✨</span></div>
           <div className="px-6 py-1"><span className="bg-[#3c3c3c]/50 text-[#cccccc] px-2 py-0.5 rounded text-[11px] font-mono mr-4 inline-block w-[110px] text-center">Esc</span> <span className="text-[#858585]">Close overlay</span></div>
           <MenuDivider />
-          <MenuItem label="GitHub ↗" onClick={() => { window.open('https://github.com/abhiramnudupa', '_blank'); setActiveMenu(null); }} />
+          <MenuItem label="GitHub ↗" onClick={() => { window.open('https://github.com/AbhiramNU', '_blank'); setActiveMenu(null); }} />
           <MenuItem label="About" onClick={() => { openFile('about.html'); setActiveMenu(null); }} />
         </div>
       )}

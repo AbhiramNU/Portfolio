@@ -99,10 +99,13 @@ export default function MarkdownPreview() {
         <h2 className="text-[24px] font-bold text-white mb-6" style={{ fontFamily: "'Arial Black', 'Impact', sans-serif" }}>Connect</h2>
         
         <div className="font-mono text-[12px] space-y-3 mb-24 text-[#858585]">
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Email:</span> <a href="mailto:abhiramnudupa@gmail.com" className="text-white font-bold hover:underline">abhiramnudupa@gmail.com</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Github:</span> <a href="https://github.com/abhiramnudupa" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiramnudupa</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">LinkedIn:</span> <a href="https://linkedin.com/in/abhiram-n-udupa" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiram-n-udupa</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Tableau:</span> <a href="https://public.tableau.com/app/profile/abhiram.udupa" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiram.udupa</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Email:</span> <a href="mailto:abhiram.udupa@gmail.com" className="text-white font-bold hover:underline">abhiram.udupa@gmail.com</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Github:</span> <a href="https://github.com/AbhiramNU" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">AbhiramNU</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">LinkedIn:</span> <a href="https://linkedin.com/in/abhiramnu" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiramnu</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Medium:</span> <a href="https://medium.com/@abhiram.udupa" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiram.udupa</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">LeetCode:</span> <a href="https://leetcode.com/u/AbhiramNU/" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">AbhiramNU</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Instagram:</span> <a href="https://www.instagram.com/abhi_udupa00" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhi_udupa00</a></div>
+          <div className="flex items-center"><span className="w-24 text-[#cccccc]">X (Twitter):</span> <a href="https://x.com/narendramodi" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">narendramodi</a></div>
         </div>
 
         {/* Footer */}

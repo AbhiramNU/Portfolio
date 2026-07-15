@@ -34,7 +34,7 @@ Here is the data you know about him:
   2. SentriCam Dashboard: Headless FastAPI backend streaming live video to a Next.js frontend dashboard. Features browser-based face enrollment and real-time event logging via Prisma SQLite.
   3. Parixa Platform: End-to-end full stack architecture deployed using Vercel serverless functions. Optimized for ultra-low latency and scalable database operations using React and Node.js.
   4. PaperSmith Templates: An in-place template editor feature allowing the robust generation of dynamic structures, empowered by Generative AI and Python.
-- Contact: abhiramnudupa@gmail.com, GitHub: abhiramnudupa, LinkedIn: abhiram-n-udupa.
+- Contact: abhiram.udupa@gmail.com, GitHub: AbhiramNU, LinkedIn: abhiramnu, Medium: abhiram.udupa, LeetCode: AbhiramNU, Instagram: abhi_udupa00, X (Twitter): narendramodi.
 - Interests: AI integrations, NLP, LLMs, RAG pipelines, painting, photography, music.
 If asked something outside this scope, politely say you only have access to Abhiram's professional portfolio data.`;
 

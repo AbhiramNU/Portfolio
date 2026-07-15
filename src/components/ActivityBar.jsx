@@ -8,7 +8,7 @@ export default function ActivityBar({ activeActivityTab, setActiveActivityTab, o
     { 
       name: 'github', 
       icon: GitMerge, 
-      onClick: () => window.open('https://github.com/abhiramnudupa', '_blank'),
+      onClick: () => window.open('https://github.com/AbhiramNU', '_blank'),
       animClass: "hover:rotate-12 hover:scale-110 hover:text-[#007acc] transition-all duration-300"
     },
     { 

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, User, Mail, Github, Linkedin, Monitor, Database, Infinity, ArrowUp, Briefcase, Link as LinkIcon, Instagram, Youtube } from 'lucide-react';
+import { Terminal, User, Mail, Github, Linkedin, Monitor, Infinity, ArrowUp, Briefcase, Link as LinkIcon, Instagram, Twitter } from 'lucide-react';
+import { useTabs } from '../hooks/useTabs';
 
 export default function HomePreview() {
+  const { openFile } = useTabs();
   return (
     <div className="flex-1 w-full h-full bg-[#1e1e1e] overflow-y-auto text-[#d4d4d4] font-mono p-10 custom-scrollbar">
       <div className="max-w-4xl mx-auto pl-4">
@@ -46,15 +48,24 @@ export default function HomePreview() {
             </p>
 
             <div className="flex gap-4 mb-10 font-sans">
-               <button className="flex items-center px-5 py-2.5 bg-[#007acc] hover:bg-[#005a9e] text-white text-[12px] font-semibold rounded cursor-pointer transition-colors shadow-sm">
+               <button 
+                  onClick={() => openFile('projects.js')}
+                  className="flex items-center px-5 py-2.5 bg-[#007acc] hover:bg-[#005a9e] text-white text-[12px] font-semibold rounded cursor-pointer transition-colors shadow-sm"
+               >
                   <span className="mr-2 px-[6px] py-[2px] bg-[#1e1e1e]/20 text-[#007acc] rounded-[2px] text-[10px] fill-current">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5" fill="white"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                   </span> Projects
                </button>
-               <button className="flex items-center px-5 py-2.5 bg-[#2d2d2d] hover:bg-[#3c3c3c] border border-[#3c3c3c] text-[#cccccc] text-[12px] font-semibold rounded cursor-pointer transition-colors">
+               <button 
+                  onClick={() => openFile('about.html')}
+                  className="flex items-center px-5 py-2.5 bg-[#2d2d2d] hover:bg-[#3c3c3c] border border-[#3c3c3c] text-[#cccccc] text-[12px] font-semibold rounded cursor-pointer transition-colors"
+               >
                   <User size={14} className="mr-2 text-[#ff5500]" /> About Me
                </button>
-               <button className="flex items-center px-5 py-2.5 bg-[#2d2d2d] hover:bg-[#3c3c3c] border border-[#3c3c3c] text-[#cccccc] text-[12px] font-semibold rounded cursor-pointer transition-colors">
+               <button 
+                  onClick={() => openFile('contact.css')}
+                  className="flex items-center px-5 py-2.5 bg-[#2d2d2d] hover:bg-[#3c3c3c] border border-[#3c3c3c] text-[#cccccc] text-[12px] font-semibold rounded cursor-pointer transition-colors"
+               >
                   <Mail size={14} className="mr-2" /> Contact
                </button>
             </div>
@@ -87,25 +98,29 @@ export default function HomePreview() {
         </div>
 
         <div className="flex flex-wrap gap-3 font-sans max-w-4xl pb-10">
-            <SocialBadge platform="GitHub" icon={<Github size={14} />} />
-            <SocialBadge platform="LinkedIn" icon={<Linkedin size={14} className="text-[#0a66c2]" />} />
-            <SocialBadge platform="Medium" icon={<Monitor size={14} />} />
-            <SocialBadge platform="Tableau" icon={<Database size={14} className="text-[#e97b39]" />} />
-            <SocialBadge platform="LeetCode" icon={<LinkIcon size={14} className="text-[#ffa116]" />} />
-            <SocialBadge platform="Instagram" icon={<Instagram size={14} className="text-[#e1306c]" />} />
-            <SocialBadge platform="Email" icon={<Mail size={14} className="text-[#4ec9b0]" />} />
-            <SocialBadge platform="Youtube" icon={<Youtube size={14} className="text-[#ff0000]" />} />
+            <SocialBadge platform="GitHub" icon={<Github size={14} />} href="https://github.com/AbhiramNU" />
+            <SocialBadge platform="LinkedIn" icon={<Linkedin size={14} className="text-[#0a66c2]" />} href="https://www.linkedin.com/in/abhiramnu/" />
+            <SocialBadge platform="Medium" icon={<Monitor size={14} />} href="https://medium.com/@abhiram.udupa" />
+            <SocialBadge platform="LeetCode" icon={<LinkIcon size={14} className="text-[#ffa116]" />} href="https://leetcode.com/u/AbhiramNU/" />
+            <SocialBadge platform="Instagram" icon={<Instagram size={14} className="text-[#e1306c]" />} href="https://www.instagram.com/abhi_udupa00" />
+            <SocialBadge platform="X (Twitter)" icon={<Twitter size={14} className="text-white" />} href="https://x.com/narendramodi" />
+            <SocialBadge platform="Email" icon={<Mail size={14} className="text-[#4ec9b0]" />} href="mailto:abhiram.udupa@gmail.com" />
         </div>
       </div>
     </div>
   );
 }
 
-function SocialBadge({ platform, icon }) {
+function SocialBadge({ platform, icon, href }) {
   return (
-    <div className="px-4 py-2 border border-[#3c3c3c] rounded bg-[#1e1e1e] hover:bg-[#2d2d2d] cursor-pointer text-[#cccccc] text-[12px] flex items-center shadow-sm transition-colors">
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="px-4 py-2 border border-[#3c3c3c] rounded bg-[#1e1e1e] hover:bg-[#2d2d2d] cursor-pointer text-[#cccccc] text-[12px] flex items-center shadow-sm transition-colors"
+    >
       <span className="mr-2">{icon}</span> {platform}
-    </div>
+    </a>
   );
 }
 
