@@ -28,9 +28,9 @@ export default function HomePreview() {
               <span className="flex items-center px-4 py-1.5 bg-[#1e1e1e] border border-[#3c3c3c] rounded text-[#cccccc]">
                 <div className="w-[6px] h-[6px] rounded-full bg-[#c586c0] mr-2"></div> AI / ML Dev
               </span>
-              <span className="flex items-center px-4 py-1.5 bg-[#1e1e1e] border border-[#3c3c3c] rounded text-[#cccccc]">
-                <div className="w-[6px] h-[6px] rounded-full bg-[#007acc] mr-2"></div> Data Scientist
-              </span>
+              <a href="https://www.sahasranshu.com/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-1.5 bg-[#1e1e1e] border border-[#3c3c3c] rounded text-[#007acc] hover:bg-[#3c3c3c]/50 transition-colors cursor-pointer">
+                <div className="w-[6px] h-[6px] rounded-full bg-[#007acc] mr-2 shadow-[0_0_8px_#007acc]"></div> @ Sahasranshu
+              </a>
               <a href="https://nitte.edu.in/nmamit/" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-1.5 bg-[#1e1e1e] border border-[#3c3c3c] rounded text-[#ff5500] hover:bg-[#3c3c3c]/50 transition-colors cursor-pointer">
                 <div className="w-[6px] h-[6px] rounded-full bg-[#ff5500] mr-2 shadow-[0_0_8px_#ff5500]"></div> @ NMAMIT
               </a>
