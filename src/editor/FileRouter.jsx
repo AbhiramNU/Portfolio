@@ -64,7 +64,7 @@ export default function FileRouter({ content, type, name }) {
   if (name === 'certifications.ipynb') {
     return <CertificationsPreview />;
   }
-  if (name === 'extra_curricular.sql') {
+  if (name === 'leadership.sql') {
     return <ActivitiesPreview />;
   }
   return <CodeViewer content={content} type={type} />;

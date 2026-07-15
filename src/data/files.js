@@ -62,7 +62,7 @@ export default Home;`
     content: `// Placeholder`
   },
   {
-    name: 'extra_curricular.sql',
+    name: 'leadership.sql',
     type: 'sql',
     content: `// Placeholder`
   },
