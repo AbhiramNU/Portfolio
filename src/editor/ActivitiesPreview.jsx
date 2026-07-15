@@ -29,7 +29,7 @@ export default function ActivitiesPreview() {
       roleColor: "bg-[#c586c0]/20 text-[#c586c0]",
       description: "Managed digital content, event promotions and branding while organizing music events, jam sessions and campus performances.",
       icon: "🎵",
-      img: "/img3.jpeg",
+      img: "/img3.png",
       postUrl: "https://www.instagram.com/p/Da0BdhrlKhX/?img_index=6"
     },
     {
@@ -39,7 +39,7 @@ export default function ActivitiesPreview() {
       roleColor: "bg-[#dcdcaa]/20 text-[#dcdcaa]",
       description: "Planned and executed technical and cultural initiatives while collaborating with faculty and student committees across the department.",
       icon: "🏛️",
-      img: "/img4.jpeg",
+      img: "/img4.png",
       postUrl: "https://www.instagram.com/p/DCpToLIM_RK/?img_index=5"
     }
   ];
