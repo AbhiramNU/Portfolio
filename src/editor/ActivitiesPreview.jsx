@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const getEmbedUrl = (url) => {
   try {
@@ -16,8 +16,6 @@ const getEmbedUrl = (url) => {
 };
 
 export default function ActivitiesPreview() {
-  const [activePost, setActivePost] = useState(null);
-
   const activities = [
     {
       id: 1,
@@ -66,8 +64,8 @@ export default function ActivitiesPreview() {
   ];
 
   return (
-    <div className="flex flex-col w-full h-full bg-[#1e1e1e] font-sans relative">
-
+    <div className="flex flex-col w-full h-full bg-[#1e1e1e] font-sans">
+      
       {/* Top half: SQL Editor */}
       <div className="h-[40%] border-b border-[#3c3c3c] flex flex-col bg-[#1e1e1e]">
         <div className="flex items-center px-4 py-2 bg-[#252526] border-b border-[#3c3c3c] text-[11px] text-[#cccccc] font-medium tracking-wide">
@@ -77,7 +75,7 @@ export default function ActivitiesPreview() {
           <div className="flex">
             <div className="w-8 text-right pr-4 text-[#858585] select-none">1</div>
             <div className="text-[#d4d4d4]">
-              <span className="text-[#569cd6]">SELECT</span> event_name, role, thumbnail, description, post_url
+              <span className="text-[#569cd6]">SELECT</span> event_name, role, thumbnail, description
             </div>
           </div>
           <div className="flex">
@@ -106,7 +104,7 @@ export default function ActivitiesPreview() {
         <div className="flex items-center px-4 py-2 bg-[#2d2d2d] border-b border-[#3c3c3c] text-[11px] text-[#cccccc]">
           Query Results ({activities.length} rows)
         </div>
-
+        
         <div className="flex-1 overflow-auto custom-scrollbar p-4">
           <table className="w-full text-left border-collapse text-[13px]">
             <thead>
@@ -116,7 +114,6 @@ export default function ActivitiesPreview() {
                 <th className="py-2 px-4 font-normal w-[200px]">event_name</th>
                 <th className="py-2 px-4 font-normal w-[150px]">role</th>
                 <th className="py-2 px-4 font-normal">description</th>
-                <th className="py-2 px-4 font-normal w-[180px]">post_url</th>
               </tr>
             </thead>
             <tbody className="text-[#cccccc]">
@@ -125,16 +122,16 @@ export default function ActivitiesPreview() {
                   <td className="py-3 px-4 font-mono text-[#b5cea8]">{act.id}</td>
                   <td className="py-3 px-4">
                     {act.useImage ? (
-                      <a
-                        href={act.postUrl}
-                        target="_blank"
+                      <a 
+                        href={act.postUrl} 
+                        target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-16 h-12 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c] overflow-hidden hover:border-[#569cd6] transition-colors block cursor-pointer"
+                        className="w-16 h-16 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c] overflow-hidden hover:border-[#569cd6] transition-colors block cursor-pointer"
                         title="Click to view Instagram post"
                       >
-                        <img
-                          src={act.img}
-                          alt={act.name}
+                        <img 
+                          src={act.img} 
+                          alt={act.name} 
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             e.target.onerror = null;
@@ -143,20 +140,20 @@ export default function ActivitiesPreview() {
                         />
                       </a>
                     ) : (
-                      <a
-                        href={act.postUrl}
-                        target="_blank"
+                      <a 
+                        href={act.postUrl} 
+                        target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-16 h-12 bg-[#2d2d2d] rounded border border-[#3c3c3c] hover:border-[#569cd6] transition-colors block cursor-pointer relative overflow-hidden"
+                        className="w-16 h-16 bg-[#2d2d2d] rounded border border-[#3c3c3c] hover:border-[#569cd6] transition-colors block cursor-pointer relative overflow-hidden"
                         title="Click to view Instagram post"
                       >
-                        <iframe
-                          src={getEmbedUrl(act.postUrl)}
+                        <iframe 
+                          src={getEmbedUrl(act.postUrl)} 
                           className="absolute"
                           style={{
                             width: '320px',
-                            height: '350px',
-                            top: '-65px',
+                            height: '374px',
+                            top: '-54px',
                             left: '0px',
                             transform: 'scale(0.2)',
                             transformOrigin: 'top left',
@@ -175,60 +172,12 @@ export default function ActivitiesPreview() {
                     </span>
                   </td>
                   <td className="py-3 px-4 text-[#858585]">{act.description}</td>
-                  <td className="py-3 px-4 font-mono text-[12px]">
-                    <div className="flex flex-col gap-1">
-                      <a href={act.postUrl} target="_blank" rel="noopener noreferrer" className="text-[#569cd6] hover:underline">
-                        instagram.com ↗
-                      </a>
-                      <button
-                        onClick={() => setActivePost(act.postUrl)}
-                        className="text-left text-[#4ec9b0] hover:underline text-[10px] uppercase font-bold tracking-wider"
-                      >
-                        [preview post]
-                      </button>
-                    </div>
-                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
-
-      {/* Instagram Embed Modal */}
-      {activePost && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000] p-4 cursor-pointer"
-          onClick={() => setActivePost(null)}
-        >
-          <div
-            className="bg-[#1e1e1e] border border-[#3c3c3c] rounded-lg overflow-hidden max-w-sm w-full relative shadow-2xl cursor-default"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between px-4 py-2 border-b border-[#3c3c3c] text-xs text-[#cccccc] bg-[#252526]">
-              <span className="font-mono text-[#4ec9b0]">INSTAGRAM_EMBED.sql</span>
-              <button
-                className="text-[#858585] hover:text-white font-bold text-sm px-1.5 py-0.5 rounded hover:bg-[#3c3c3c]"
-                onClick={() => setActivePost(null)}
-              >
-                ✕
-              </button>
-            </div>
-            <div className="flex items-center justify-center p-2 bg-black min-h-[480px]">
-              <iframe
-                src={getEmbedUrl(activePost)}
-                className="w-full h-[480px] border-0"
-                scrolling="no"
-                allowtransparency="true"
-                allow="encrypted-media"
-              />
-            </div>
-            <div className="p-3 border-t border-[#3c3c3c] text-[10px] text-[#858585] font-mono bg-[#252526] text-center">
-              Click outside or press ✕ to close preview
-            </div>
-          </div>
-        </div>
-      )}
 
     </div>
   );
