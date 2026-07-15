@@ -1,20 +1,5 @@
 import React from 'react';
 
-const getEmbedUrl = (url) => {
-  try {
-    const urlObj = new URL(url);
-    const basePath = urlObj.pathname.endsWith('/') ? urlObj.pathname : `${urlObj.pathname}/`;
-    const imgIndex = urlObj.searchParams.get('img_index');
-    let embedUrl = `https://www.instagram.com${basePath}embed/`;
-    if (imgIndex) {
-      embedUrl += `?img_index=${imgIndex}`;
-    }
-    return embedUrl;
-  } catch (e) {
-    return `${url}/embed/`;
-  }
-};
-
 export default function ActivitiesPreview() {
   const activities = [
     {
@@ -25,7 +10,6 @@ export default function ActivitiesPreview() {
       description: "Appointed Head of the Cultural Committee for Incridea'27, leading planning, coordination and execution of one of Karnataka's largest collegiate cultural festivals.",
       icon: "🎭",
       img: "/img1.jpeg",
-      useImage: true,
       postUrl: "https://www.instagram.com/incridea/"
     },
     {
@@ -36,7 +20,6 @@ export default function ActivitiesPreview() {
       description: "Coordinated artists, volunteers and multiple event teams while managing logistics and on-ground execution for the annual cultural festival.",
       icon: "🎤",
       img: "/img2.jpeg",
-      useImage: true,
       postUrl: "https://www.instagram.com/incridea/"
     },
     {
@@ -46,8 +29,7 @@ export default function ActivitiesPreview() {
       roleColor: "bg-[#c586c0]/20 text-[#c586c0]",
       description: "Managed digital content, event promotions and branding while organizing music events, jam sessions and campus performances.",
       icon: "🎵",
-      img: "",
-      useImage: false,
+      img: "/img3.jpeg",
       postUrl: "https://www.instagram.com/p/Da0BdhrlKhX/?img_index=6"
     },
     {
@@ -57,8 +39,7 @@ export default function ActivitiesPreview() {
       roleColor: "bg-[#dcdcaa]/20 text-[#dcdcaa]",
       description: "Planned and executed technical and cultural initiatives while collaborating with faculty and student committees across the department.",
       icon: "🏛️",
-      img: "",
-      useImage: false,
+      img: "/img4.jpeg",
       postUrl: "https://www.instagram.com/p/DCpToLIM_RK/?img_index=5"
     }
   ];
@@ -121,49 +102,23 @@ export default function ActivitiesPreview() {
                 <tr key={act.id} className="border-b border-[#3c3c3c]/50 hover:bg-[#2a2d2e] transition-colors">
                   <td className="py-3 px-4 font-mono text-[#b5cea8]">{act.id}</td>
                   <td className="py-3 px-4">
-                    {act.useImage ? (
-                      <a 
-                        href={act.postUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="w-16 h-16 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c] overflow-hidden hover:border-[#569cd6] transition-colors block cursor-pointer"
-                        title="Click to view Instagram post"
-                      >
-                        <img 
-                          src={act.img} 
-                          alt={act.name} 
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23858585' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E";
-                          }}
-                        />
-                      </a>
-                    ) : (
-                      <a 
-                        href={act.postUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="w-16 h-16 bg-[#2d2d2d] rounded border border-[#3c3c3c] hover:border-[#569cd6] transition-colors block cursor-pointer relative overflow-hidden"
-                        title="Click to view Instagram post"
-                      >
-                        <iframe 
-                          src={getEmbedUrl(act.postUrl)} 
-                          className="absolute"
-                          style={{
-                            width: '320px',
-                            height: '600px',
-                            top: '-54px',
-                            left: '0px',
-                            transform: 'scale(0.2)',
-                            transformOrigin: 'top left',
-                            border: 'none',
-                            pointerEvents: 'none'
-                          }}
-                          scrolling="no"
-                        />
-                      </a>
-                    )}
+                    <a 
+                      href={act.postUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-16 h-16 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c] overflow-hidden hover:border-[#569cd6] transition-colors block cursor-pointer"
+                      title="Click to view Instagram post"
+                    >
+                      <img 
+                        src={act.img} 
+                        alt={act.name} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23858585' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E";
+                        }}
+                      />
+                    </a>
                   </td>
                   <td className="py-3 px-4 font-bold text-white">{act.name}</td>
                   <td className="py-3 px-4">
