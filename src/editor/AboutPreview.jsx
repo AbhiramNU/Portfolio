@@ -4,7 +4,7 @@ export default function AboutPreview() {
   return (
     <div className="flex-1 w-full h-full bg-[#1e1e1e] overflow-y-auto text-[#d4d4d4] font-mono p-10 custom-scrollbar">
       <div className="max-w-4xl mx-auto pl-4 pb-12">
-        
+
         {/* Header Section */}
         <p className="text-[#6a9955] mb-6 text-[13px] tracking-wide">
           &lt;!-- about.html - Abhiram N Udupa --&gt;
@@ -20,7 +20,7 @@ export default function AboutPreview() {
         {/* Intro Block */}
         <div className="bg-[#252526] border border-[#3c3c3c] rounded-lg p-6 mb-10 shadow-sm">
           <p className="text-[#cccccc] text-[13px] leading-8">
-            Hi! I'm <span className="text-[#4ec9b0] font-semibold">Abhiram</span>, a software developer living at the crossroads of <span className="text-[#4ec9b0] font-semibold">backend engineering</span>, <span className="text-[#4ec9b0] font-semibold">AI/ML</span>, and <span className="text-[#4ec9b0] font-semibold">data science</span>. I love building systems that are not just functional but genuinely <span className="text-[#4ec9b0] font-semibold">intelligent and scalable</span>. Currently exploring AI integrations and backend systems at <span className="text-[#ff5500] font-semibold">NMAMIT</span> that power seamless experiences for end-users.
+            Hi! I'm <span className="text-[#4ec9b0] font-semibold">Abhiram</span>, a software developer passionate about building products that solve real-world problems. I enjoy combining <span className="text-[#4ec9b0] font-semibold">backend engineering</span>, <span className="text-[#4ec9b0] font-semibold">full-stack development</span>, and <span className="text-[#4ec9b0] font-semibold">applied AI</span> to create <span className="text-[#4ec9b0] font-semibold">scalable, reliable, and user-focused software</span>. From designing <span className="text-[#4ec9b0] font-semibold">REST APIs</span> and backend systems to integrating AI into modern web applications, I enjoy turning ideas into products that are practical, impactful, and built to scale.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function AboutPreview() {
 
         {/* Education Section */}
         <h2 className="text-[#4ec9b0] font-semibold tracking-[0.2em] text-[12px] mb-4">EDUCATION</h2>
-        
+
         {/* Education Item 1 */}
         <div className="bg-[#252526] border border-[#3c3c3c] rounded-lg p-6 mb-4 shadow-sm">
           <div className="flex justify-between items-start mb-2">

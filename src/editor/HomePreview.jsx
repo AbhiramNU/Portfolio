@@ -44,7 +44,7 @@ export default function HomePreview() {
             </div>
 
             <p className="text-[#858585] mb-12 font-mono text-[13px] leading-7">
-              I live at the crossroads of <span className="text-[#4ec9b0] font-semibold">backend engineering</span>, <span className="text-[#4ec9b0] font-semibold">AI/ML</span>, and <span className="text-[#4ec9b0] font-semibold">data science</span>. I build systems that are genuinely <span className="text-[#4ec9b0] font-semibold">intelligent and scalable</span>.
+              I build <span className="text-[#4ec9b0] font-semibold">reliable backend systems</span>, <span className="text-[#4ec9b0] font-semibold">intelligent applications</span>, and <span className="text-[#4ec9b0] font-semibold">scalable full-stack solutions</span> using Java, Spring Boot, React, and AI/ML.
             </p>
 
             <div className="flex gap-4 mb-10 font-sans">
