@@ -30,27 +30,27 @@ export default function AboutPreview() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-[12px] text-[#cccccc] leading-relaxed">
             <div className="flex items-start">
               <span className="mr-3">🚀</span>
-              <span>Building scalable backend systems & AI integrations at NMAMIT</span>
+              <span>Building backend systems with Java, Spring Boot and PostgreSQL</span>
             </div>
             <div className="flex items-start">
               <span className="mr-3">🌱</span>
-              <span>Deep interest in NLP, LLMs & ML pipelines</span>
+              <span>Building full-stack applications using React and Node.js</span>
             </div>
             <div className="flex items-start">
               <span className="mr-3">🔭</span>
-              <span>Currently exploring RAG, MLOps & Vector Databases</span>
+              <span>Exploring AI integrations, RAG and production-ready LLM applications</span>
             </div>
             <div className="flex items-start">
               <span className="mr-3">💬</span>
-              <span>Talk to me about Python, APIs, Data Science</span>
+              <span>Interested in Backend Engineering, REST APIs, System Design and Machine Learning</span>
             </div>
             <div className="flex items-start">
               <span className="mr-3">⚡</span>
-              <span>Making data stories non-data people actually get</span>
+              <span>Strong believer in clean architecture, scalable software and continuous learning</span>
             </div>
             <div className="flex items-start">
               <span className="mr-3">📫</span>
-              <span>Always learning, always shipping</span>
+              <span>Always learning, always building</span>
             </div>
           </div>
         </div>
@@ -64,24 +64,24 @@ export default function AboutPreview() {
             <h3 className="text-white font-bold text-[14px] flex items-center font-sans tracking-wide">
               <span className="mr-2 shrink-0">🎓</span> NMAMIT, Nitte
             </h3>
-            <span className="text-[#858585] text-[11px] shrink-0 pt-0.5">2021 - 2025</span>
+            <span className="text-[#858585] text-[11px] shrink-0 pt-0.5">2023 - 2027</span>
           </div>
           <div className="text-[12px] text-[#858585] mb-1">Nitte Deemed to be University</div>
-          <div className="text-[#007acc] text-[12px] font-semibold mb-1">Bachelor of Engineering in Computer Science</div>
-          <div className="text-[#cccccc] text-[11px] mb-1">Minors: Artificial Intelligence & Machine Learning (AI/ML)</div>
-          <div className="text-[#c586c0] text-[11px]">CGPA: 9.0+</div>
+          <div className="text-[#007acc] text-[12px] font-semibold mb-1">Bachelor of Engineering in Computer Science and Engineering</div>
+          <div className="text-[#cccccc] text-[11px] mb-1">Minors: Computer Science and Engineering (CSE)</div>
+          <div className="text-[#c586c0] text-[11px]">CGPA: 8.9</div>
         </div>
 
         {/* Education Item 2 */}
         <div className="bg-[#252526] border border-[#3c3c3c] rounded-lg p-6 shadow-sm">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-white font-bold text-[14px] flex items-center font-sans tracking-wide">
-              <span className="mr-2 shrink-0">🏫</span> Higher Secondary School
+              <span className="mr-2 shrink-0">🏫</span> Little Rock Indian School, Brahmavar
             </h3>
-            <span className="text-[#858585] text-[11px] shrink-0 pt-0.5">2007 - 2021</span>
+            <span className="text-[#858585] text-[11px] shrink-0 pt-0.5">2008 - 2023</span>
           </div>
           <div className="text-[#007acc] text-[12px] font-semibold mb-1">High School Education</div>
-          <div className="text-[#cccccc] text-[11px]">Class 12th: 90%+ | Class 10th: 95%+</div>
+          <div className="text-[#cccccc] text-[11px]">Class 12th: 90.8% | Class 10th: 94.8%+</div>
         </div>
 
       </div>

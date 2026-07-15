@@ -5,7 +5,7 @@ const SkillBar = ({ name, percent, color }) => (
   <div className="flex items-center justify-between mb-3.5 group">
     <div className="w-[35%] text-[11px] text-[#cccccc] font-sans whitespace-nowrap overflow-hidden text-ellipsis group-hover:text-white transition-colors">{name}</div>
     <div className="flex-1 h-[1.5px] bg-[#2d2d2d] rounded-full mx-4 overflow-hidden relative">
-      <motion.div 
+      <motion.div
         className="absolute top-0 left-0 h-full shadow-[0_0_10px_currentColor]"
         style={{ backgroundColor: color, color: color }}
         initial={{ width: 0 }}
@@ -35,41 +35,44 @@ export default function SkillsPreview() {
         { name: 'Python', percent: 90, color: '#4ec9b0' },
         { name: 'Java', percent: 80, color: '#dcdcaa' },
         { name: 'JavaScript', percent: 85, color: '#ce9178' },
-        { name: 'TypeScript', percent: 75, color: '#569cd6' },
+        { name: 'TypeScript', percent: 60, color: '#569cd6' },
         { name: 'SQL', percent: 85, color: '#c586c0' }
       ]
     },
+
     {
-      title: 'AI - ML - DATA SCIENCE',
+      title: 'Frontend',
       skills: [
-        { name: 'PyTorch', percent: 85, color: '#ff5500' },
-        { name: 'TensorFlow', percent: 80, color: '#ce9178' },
-        { name: 'scikit-learn', percent: 90, color: '#4ec9b0' },
-        { name: 'Pandas', percent: 95, color: '#569cd6' },
-        { name: 'NumPy', percent: 90, color: '#dcdcaa' },
-        { name: 'OpenCV', percent: 80, color: '#c586c0' },
-        { name: 'NLTK', percent: 75, color: '#4ec9b0' }
+        { name: 'React', percent: 90, color: '#ff5500' },
+        { name: 'Tailwind CSS', percent: 80, color: '#ce9178' },
+        { name: 'Next.js', percent: 70, color: '#4ec9b0' },
+        { name: 'Astro', percent: 70, color: '#569cd6' },
+        { name: 'HTML/CSS', percent: 90, color: '#dcdcaa' },
+        { name: 'JavaScript', percent: 85, color: '#c586c0' }
+
+      ]
+    },
+    {
+      title: 'AI/ML',
+      skills: [
+        { name: 'scikit-learn', percent: 60, color: '#dcdcaa' },
+        { name: 'NumPy', percent: 70, color: '#dcdcaa' },
+        { name: 'OpenCV', percent: 70, color: '#c586c0' },
+        { name: 'TensorFlow', percent: 60, color: '#4ec9b0' },
+        { name: 'Pandas', percent: 70, color: '#dcdcaa' }
+
+
       ]
     },
     {
       title: 'DATABASES',
       skills: [
         { name: 'PostgreSQL', percent: 85, color: '#569cd6' },
-        { name: 'MySQL', percent: 80, color: '#dcdcaa' },
+        { name: 'MySQL', percent: 85, color: '#dcdcaa' },
         { name: 'MongoDB', percent: 75, color: '#ff5500' }
       ]
     },
-    {
-      title: 'DEVOPS & TOOLS',
-      skills: [
-        { name: 'Docker', percent: 80, color: '#569cd6' },
-        { name: 'Git', percent: 90, color: '#ff5500' },
-        { name: 'Linux', percent: 85, color: '#dcdcaa' },
-        { name: 'AWS', percent: 75, color: '#ce9178' },
-        { name: 'GitHub Actions', percent: 80, color: '#c586c0' },
-        { name: 'Jupyter', percent: 90, color: '#ff5500' }
-      ]
-    },
+
     {
       title: 'DESIGN',
       skills: [
@@ -81,14 +84,14 @@ export default function SkillsPreview() {
 
   const rightColumn = [
     {
-      title: 'GENERATIVE AI & LLM FRAMEWORKS',
+      title: 'Backend',
       skills: [
-        { name: 'LangChain', percent: 85, color: '#4ec9b0' },
-        { name: 'LangGraph', percent: 75, color: '#ce9178' },
-        { name: 'RAG Pipelines', percent: 85, color: '#569cd6' },
-        { name: 'Prompt Engineering', percent: 90, color: '#dcdcaa' },
-        { name: 'Agentic Workflows', percent: 80, color: '#c586c0' },
-        { name: 'Hugging Face', percent: 85, color: '#ff5500' }
+        { name: 'Spring Boot', percent: 90, color: '#ff5500' },
+        { name: 'Node.js', percent: 70, color: '#ce9178' },
+        { name: 'Express.js', percent: 70, color: '#4ec9b0' },
+        { name: 'FastAPI', percent: 80, color: '#569cd6' },
+        { name: 'REST APIs', percent: 90, color: '#dcdcaa' },
+        { name: 'Swagger UI', percent: 80, color: '#c586c0' }
       ]
     },
     {
@@ -101,40 +104,41 @@ export default function SkillsPreview() {
       ]
     },
     {
-      title: 'VECTOR DATABASES',
+      title: 'DEVOPS & TOOLS',
       skills: [
-        { name: 'FAISS', percent: 80, color: '#569cd6' },
-        { name: 'Pinecone', percent: 85, color: '#c586c0' },
-        { name: 'ChromaDB', percent: 75, color: '#4ec9b0' }
+        { name: 'Docker', percent: 70, color: '#569cd6' },
+        { name: 'Git', percent: 90, color: '#ff5500' },
+        { name: 'Linux', percent: 75, color: '#dcdcaa' },
+        { name: 'Jenkins', percent: 80, color: '#ce9178' },
+        { name: ' VS Code', percent: 60, color: '#c586c0' },
+        { name: 'Postman', percent: 70, color: '#ff5500' }
       ]
     },
-    {
-      title: 'FRONTEND',
-      skills: [
-        { name: 'React', percent: 80, color: '#569cd6' },
-        { name: 'Next.js', percent: 75, color: '#ce9178' },
-        { name: 'TailwindCSS', percent: 85, color: '#4ec9b0' },
-        { name: 'Responsive Design', percent: 90, color: '#dcdcaa' }
-      ]
-    },
-    {
-      title: 'DATA ANALYTICS',
-      skills: [
-        { name: 'Tableau', percent: 75, color: '#c586c0' },
-        { name: 'Power BI', percent: 70, color: '#dcdcaa' }
-      ]
-    }
+
   ];
 
   const familiarWith = [
-    'Pandas', 'NumPy', 'scikit-learn', 'spaCy', 'NLTK', 'Seaborn', 'Matplotlib',
-    'OpenAI API', 'Tableau', 'Power BI', 'C++', 'Java', 'Redis', 'LLM Fine-tuning', 'Vector DBs'
+    'REST APIs',
+    'JWT Authentication',
+    'Machine Learning',
+    'TensorFlow',
+    'scikit-learn',
+    'Pandas',
+    'NumPy',
+    'Matplotlib',
+    'Git',
+    'Docker',
+    'Postman',
+    'Maven',
+    'Linux',
+    'Agile Development',
+    'CI/CD'
   ];
 
   return (
     <div className="flex-1 w-full h-full bg-[#1e1e1e] overflow-y-auto text-[#d4d4d4] font-mono p-10 custom-scrollbar">
       <div className="max-w-5xl mx-auto pl-4 pb-12">
-        
+
         {/* Comment Header */}
         <p className="text-[#6a9955] mb-6 text-[13px] tracking-wide mt-2">
           // skills.json - frameworks & tools I actually use
@@ -149,12 +153,12 @@ export default function SkillsPreview() {
 
         {/* Skills Two-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-2">
-          
+
           {/* Left Column */}
           <div>
             {leftColumn.map(cat => <SkillCategory key={cat.title} title={cat.title} skills={cat.skills} />)}
           </div>
-          
+
           {/* Right Column */}
           <div>
             {rightColumn.map(cat => <SkillCategory key={cat.title} title={cat.title} skills={cat.skills} />)}
