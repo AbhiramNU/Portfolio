@@ -1,9 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const getEmbedUrl = (url) => {
+  try {
+    const urlObj = new URL(url);
+    const basePath = urlObj.pathname.endsWith('/') ? urlObj.pathname : `${urlObj.pathname}/`;
+    const imgIndex = urlObj.searchParams.get('img_index');
+    let embedUrl = `https://www.instagram.com${basePath}embed/`;
+    if (imgIndex) {
+      embedUrl += `?img_index=${imgIndex}`;
+    }
+    return embedUrl;
+  } catch (e) {
+    return `${url}/embed/`;
+  }
+};
 
 export default function ActivitiesPreview() {
+  const [activePost, setActivePost] = useState(null);
+
+  const activities = [
+    {
+      id: 1,
+      name: "Incridea '27",
+      role: "HEAD",
+      roleColor: "bg-[#569cd6]/20 text-[#569cd6]",
+      description: "Appointed Head of the Cultural Committee for Incridea'27, leading planning, coordination and execution of one of Karnataka's largest collegiate cultural festivals.",
+      icon: "🎭",
+      img: "/img1.jpeg",
+      useImage: true,
+      postUrl: "https://www.instagram.com/incridea/"
+    },
+    {
+      id: 2,
+      name: "Incridea '26",
+      role: "CO-HEAD",
+      roleColor: "bg-[#4ec9b0]/20 text-[#4ec9b0]",
+      description: "Coordinated artists, volunteers and multiple event teams while managing logistics and on-ground execution for the annual cultural festival.",
+      icon: "🎤",
+      img: "/img2.jpeg",
+      useImage: true,
+      postUrl: "https://www.instagram.com/incridea/"
+    },
+    {
+      id: 3,
+      name: "Stereo Club",
+      role: "DIGITAL MEDIA HEAD",
+      roleColor: "bg-[#c586c0]/20 text-[#c586c0]",
+      description: "Managed digital content, event promotions and branding while organizing music events, jam sessions and campus performances.",
+      icon: "🎵",
+      img: "",
+      useImage: false,
+      postUrl: "https://www.instagram.com/p/Da0BdhrlKhX/?img_index=6"
+    },
+    {
+      id: 4,
+      name: "Association of Computer Engineers",
+      role: "JOINT CULTURAL SECRETARY",
+      roleColor: "bg-[#dcdcaa]/20 text-[#dcdcaa]",
+      description: "Planned and executed technical and cultural initiatives while collaborating with faculty and student committees across the department.",
+      icon: "🏛️",
+      img: "",
+      useImage: false,
+      postUrl: "https://www.instagram.com/p/DCpToLIM_RK/?img_index=5"
+    }
+  ];
+
   return (
-    <div className="flex flex-col w-full h-full bg-[#1e1e1e] font-sans">
-      
+    <div className="flex flex-col w-full h-full bg-[#1e1e1e] font-sans relative">
+
       {/* Top half: SQL Editor */}
       <div className="h-[40%] border-b border-[#3c3c3c] flex flex-col bg-[#1e1e1e]">
         <div className="flex items-center px-4 py-2 bg-[#252526] border-b border-[#3c3c3c] text-[11px] text-[#cccccc] font-medium tracking-wide">
@@ -13,7 +77,7 @@ export default function ActivitiesPreview() {
           <div className="flex">
             <div className="w-8 text-right pr-4 text-[#858585] select-none">1</div>
             <div className="text-[#d4d4d4]">
-              <span className="text-[#569cd6]">SELECT</span> event_name, role, thumbnail, description, date
+              <span className="text-[#569cd6]">SELECT</span> event_name, role, thumbnail, description, post_url
             </div>
           </div>
           <div className="flex">
@@ -40,9 +104,9 @@ export default function ActivitiesPreview() {
       {/* Bottom half: Query Results (Table UI) */}
       <div className="flex-1 flex flex-col bg-[#1e1e1e] overflow-hidden">
         <div className="flex items-center px-4 py-2 bg-[#2d2d2d] border-b border-[#3c3c3c] text-[11px] text-[#cccccc]">
-          Query Results (4 rows)
+          Query Results ({activities.length} rows)
         </div>
-        
+
         <div className="flex-1 overflow-auto custom-scrollbar p-4">
           <table className="w-full text-left border-collapse text-[13px]">
             <thead>
@@ -52,94 +116,119 @@ export default function ActivitiesPreview() {
                 <th className="py-2 px-4 font-normal w-[200px]">event_name</th>
                 <th className="py-2 px-4 font-normal w-[150px]">role</th>
                 <th className="py-2 px-4 font-normal">description</th>
+                <th className="py-2 px-4 font-normal w-[180px]">post_url</th>
               </tr>
             </thead>
             <tbody className="text-[#cccccc]">
-
-              {/* Row 1 */}
-              <tr className="border-b border-[#3c3c3c]/50 hover:bg-[#2a2d2e] transition-colors">
-                <td className="py-3 px-4 font-mono text-[#b5cea8]">1</td>
-                <td className="py-3 px-4">
-                  <div className="w-16 h-12 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c]">
-                    <span className="text-xs">🎭</span>
-                  </div>
-                </td>
-                <td className="py-3 px-4 font-bold text-white">Incridea '27</td>
-                <td className="py-3 px-4">
-                  <span className="bg-[#569cd6]/20 text-[#569cd6] px-2 py-1 rounded-full text-[10px] font-bold tracking-wider">
-                    HEAD
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-[#858585]">
-                  Appointed Head of the Cultural Committee for Incridea'27, leading planning,
-                  coordination and execution of one of Karnataka's largest collegiate cultural festivals.
-                </td>
-              </tr>
-
-              {/* Row 2 */}
-              <tr className="border-b border-[#3c3c3c]/50 hover:bg-[#2a2d2e] transition-colors">
-                <td className="py-3 px-4 font-mono text-[#b5cea8]">2</td>
-                <td className="py-3 px-4">
-                  <div className="w-16 h-12 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c]">
-                    <span className="text-xs">🎤</span>
-                  </div>
-                </td>
-                <td className="py-3 px-4 font-bold text-white">Incridea '26</td>
-                <td className="py-3 px-4">
-                  <span className="bg-[#4ec9b0]/20 text-[#4ec9b0] px-2 py-1 rounded-full text-[10px] font-bold tracking-wider">
-                    CO-HEAD
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-[#858585]">
-                  Coordinated artists, volunteers and multiple event teams while managing
-                  logistics and on-ground execution for the annual cultural festival.
-                </td>
-              </tr>
-
-              {/* Row 3 */}
-              <tr className="border-b border-[#3c3c3c]/50 hover:bg-[#2a2d2e] transition-colors">
-                <td className="py-3 px-4 font-mono text-[#b5cea8]">3</td>
-                <td className="py-3 px-4">
-                  <div className="w-16 h-12 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c]">
-                    <span className="text-xs">🎵</span>
-                  </div>
-                </td>
-                <td className="py-3 px-4 font-bold text-white">Stereo Club</td>
-                <td className="py-3 px-4">
-                  <span className="bg-[#c586c0]/20 text-[#c586c0] px-2 py-1 rounded-full text-[10px] font-bold tracking-wider">
-                    DIGITAL MEDIA HEAD
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-[#858585]">
-                  Managed digital content, event promotions and branding while organizing
-                  music events, jam sessions and campus performances.
-                </td>
-              </tr>
-
-              {/* Row 4 */}
-              <tr className="border-b border-[#3c3c3c]/50 hover:bg-[#2a2d2e] transition-colors">
-                <td className="py-3 px-4 font-mono text-[#b5cea8]">4</td>
-                <td className="py-3 px-4">
-                  <div className="w-16 h-12 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c]">
-                    <span className="text-xs">🏛️</span>
-                  </div>
-                </td>
-                <td className="py-3 px-4 font-bold text-white">Association of Computer Engineers</td>
-                <td className="py-3 px-4">
-                  <span className="bg-[#dcdcaa]/20 text-[#dcdcaa] px-2 py-1 rounded-full text-[10px] font-bold tracking-wider">
-                    JOINT CULTURAL SECRETARY
-                  </span>
-                </td>
-                <td className="py-3 px-4 text-[#858585]">
-                  Planned and executed technical and cultural initiatives while collaborating
-                  with faculty and student committees across the department.
-                </td>
-              </tr>
-
+              {activities.map((act) => (
+                <tr key={act.id} className="border-b border-[#3c3c3c]/50 hover:bg-[#2a2d2e] transition-colors">
+                  <td className="py-3 px-4 font-mono text-[#b5cea8]">{act.id}</td>
+                  <td className="py-3 px-4">
+                    {act.useImage ? (
+                      <a
+                        href={act.postUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-16 h-12 bg-[#2d2d2d] rounded flex items-center justify-center border border-[#3c3c3c] overflow-hidden hover:border-[#569cd6] transition-colors block cursor-pointer"
+                        title="Click to view Instagram post"
+                      >
+                        <img
+                          src={act.img}
+                          alt={act.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23858585' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E";
+                          }}
+                        />
+                      </a>
+                    ) : (
+                      <a
+                        href={act.postUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-16 h-12 bg-[#2d2d2d] rounded border border-[#3c3c3c] hover:border-[#569cd6] transition-colors block cursor-pointer relative overflow-hidden"
+                        title="Click to view Instagram post"
+                      >
+                        <iframe
+                          src={getEmbedUrl(act.postUrl)}
+                          className="absolute"
+                          style={{
+                            width: '320px',
+                            height: '350px',
+                            top: '-65px',
+                            left: '0px',
+                            transform: 'scale(0.2)',
+                            transformOrigin: 'top left',
+                            border: 'none',
+                            pointerEvents: 'none'
+                          }}
+                          scrolling="no"
+                        />
+                      </a>
+                    )}
+                  </td>
+                  <td className="py-3 px-4 font-bold text-white">{act.name}</td>
+                  <td className="py-3 px-4">
+                    <span className={`px-2 py-1 rounded-full text-[10px] font-bold tracking-wider ${act.roleColor}`}>
+                      {act.role}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-[#858585]">{act.description}</td>
+                  <td className="py-3 px-4 font-mono text-[12px]">
+                    <div className="flex flex-col gap-1">
+                      <a href={act.postUrl} target="_blank" rel="noopener noreferrer" className="text-[#569cd6] hover:underline">
+                        instagram.com ↗
+                      </a>
+                      <button
+                        onClick={() => setActivePost(act.postUrl)}
+                        className="text-left text-[#4ec9b0] hover:underline text-[10px] uppercase font-bold tracking-wider"
+                      >
+                        [preview post]
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
+
+      {/* Instagram Embed Modal */}
+      {activePost && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000] p-4 cursor-pointer"
+          onClick={() => setActivePost(null)}
+        >
+          <div
+            className="bg-[#1e1e1e] border border-[#3c3c3c] rounded-lg overflow-hidden max-w-sm w-full relative shadow-2xl cursor-default"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-2 border-b border-[#3c3c3c] text-xs text-[#cccccc] bg-[#252526]">
+              <span className="font-mono text-[#4ec9b0]">INSTAGRAM_EMBED.sql</span>
+              <button
+                className="text-[#858585] hover:text-white font-bold text-sm px-1.5 py-0.5 rounded hover:bg-[#3c3c3c]"
+                onClick={() => setActivePost(null)}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="flex items-center justify-center p-2 bg-black min-h-[480px]">
+              <iframe
+                src={getEmbedUrl(activePost)}
+                className="w-full h-[480px] border-0"
+                scrolling="no"
+                allowtransparency="true"
+                allow="encrypted-media"
+              />
+            </div>
+            <div className="p-3 border-t border-[#3c3c3c] text-[10px] text-[#858585] font-mono bg-[#252526] text-center">
+              Click outside or press ✕ to close preview
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
