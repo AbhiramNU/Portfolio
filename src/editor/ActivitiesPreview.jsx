@@ -152,7 +152,7 @@ export default function ActivitiesPreview() {
                           className="absolute"
                           style={{
                             width: '320px',
-                            height: '374px',
+                            height: '600px',
                             top: '-54px',
                             left: '0px',
                             transform: 'scale(0.2)',
