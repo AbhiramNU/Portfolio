@@ -46,25 +46,18 @@ const ExperienceItem = ({ date, title, company, description, tags, isLast }) => 
 export default function ExperiencePreview() {
   const experiences = [
     {
-      date: "2024 - Present",
-      title: "Junior Software Developer",
-      company: "NMAMIT",
-      description: "Building intelligent backend systems and AI integrations for research platforms. ML-powered data structuring, RAG pipelines, and scalable APIs handling thousands of dynamic requests daily.",
-      tags: ["FastAPI", "Python", "Django", "PostgreSQL", "Docker", "AWS", "GenAI", "React"]
+      date: "June 2026 - Present",
+      title: "Software Development Intern",
+      company: "Sahasranshu Technologies",
+      description: "Working as a Software Development Intern on enterprise-grade software solutions, contributing to backend development using Java, Spring Boot, and PostgreSQL. Responsible for developing and testing REST APIs, writing unit and component tests, improving code quality through refactoring, debugging backend services, and collaborating in Agile development workflows. Regularly participate in code reviews, API validation, secure coding practices, and production-ready software development while working closely with cross-functional engineering teams to deliver scalable and maintainable backend applications.",
+      tags: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "Agile", "Backend"]
     },
     {
-      date: "May 2023 - Dec 2023",
-      title: "Data Science Intern",
-      company: "Zepto Digital Labs",
-      description: "Designed statistical models and optimized dataset workflows leading to actionable insights. Engineered research-backed algorithmic improvements that minimized pipeline latency by 25%.",
-      tags: ["Python", "Pandas", "Scikit-Learn", "Tableau", "SQL"]
-    },
-    {
-      date: "Jun 2022 - Aug 2022",
-      title: "Back End Intern",
-      company: "InnovateTech Solutions",
-      description: "Collaborated with senior engineers to implement robust server-side architecture. Focused on containerizing Node.js microservices and building an automated CI/CD deployment pipeline.",
-      tags: ["Node.js", "Express", "Docker", "CI/CD", "MongoDB"]
+      date: "January 2026 - March 2026",
+      title: "Full Stack Developer",
+      company: "Akash Shipping Agency",
+      description: "Designed and developed the complete digital presence for Akash Shipping Agency, delivering both a modern corporate website and an internal management system. Built a responsive, SEO-friendly website to strengthen the company's online branding while developing a custom software solution to streamline vessel operations, shipment tracking, employee management, client records, and day-to-day administrative workflows. Worked across both frontend and backend to deliver an efficient, scalable, and user-friendly solution tailored to the organization's operational requirements.",
+      tags: ["React", "HTML5", "CSS3", "JavaScript", "Full Stack", "SEO"]
     }
   ];
 

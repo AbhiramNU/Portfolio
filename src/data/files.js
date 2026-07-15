@@ -71,9 +71,16 @@ export default Home;`
     type: 'typescript',
     content: `export const experiences = [
   {
-    role: "Junior Software Developer",
-    company: "EduVanceAI",
-    location: "India IN"
+    company: "Sahasranshu Technologies",
+    role: "Software Development Intern",
+    duration: "June 2026 – Present",
+    description: "Working on enterprise-grade backend applications using Java, Spring Boot, and PostgreSQL."
+  },
+  {
+    company: "Akash Shipping Agency",
+    role: "Full Stack Developer",
+    duration: "January 2026 – March 2026",
+    description: "Designed and developed corporate site and custom internal vessel operations tracking system."
   }
 ];`
   },
