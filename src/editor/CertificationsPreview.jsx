@@ -19,13 +19,13 @@ const NotebookCell = ({ index, code, title, issuer, date, credentialId, skills, 
       </div>
       <div className="flex-1">
         <div className="flex flex-col md:flex-row bg-[#252526] border border-[#3c3c3c] rounded overflow-hidden max-w-3xl hover:border-[#569cd6] transition-colors">
-          {/* Image Placeholder */}
+          {/* Badge Icon / Emblem */}
           <div className="w-full md:w-48 h-36 bg-[#1e1e1e] flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-[#3c3c3c] p-4 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#569cd6]/10 to-[#c586c0]/10 opacity-50"></div>
             <span className="text-[#858585] text-xs font-mono z-10 flex flex-col items-center text-center">
               <span className="text-3xl mb-1.5">📜</span>
               <span className="font-bold text-[10px] uppercase tracking-wide opacity-80">{issuer}</span>
-              <span className="text-[9px] mt-0.5 opacity-60">Verified Document</span>
+              <span className="text-[9px] mt-0.5 opacity-60">Verified Credential</span>
             </span>
           </div>
 
@@ -33,13 +33,13 @@ const NotebookCell = ({ index, code, title, issuer, date, credentialId, skills, 
           <div className="p-5 flex flex-col justify-center flex-1">
             <div className="flex justify-between items-start mb-2 gap-4">
               <h3 className="text-white font-bold text-[15px] font-sans leading-snug">{title}</h3>
-              <span className="text-[#858585] text-[10px] border border-[#3c3c3c] px-2 py-0.5 rounded-full shrink-0">{date}</span>
+              <span className="text-[#858585] text-[10px] border border-[#3c3c3c] px-2 py-0.5 rounded-full shrink-0 font-mono">{date}</span>
             </div>
 
             <div className="space-y-1 mb-4 text-[12px]">
               <p className="text-[#cccccc]">Issued by: <span className="text-[#4ec9b0] font-semibold">{issuer}</span></p>
               {credentialId && (
-                <p className="text-[#858585] font-mono text-[11px]">ID: <span className="text-[#ce9178]">{credentialId}</span></p>
+                <p className="text-[#858585] font-mono text-[11px]">Credential ID: <span className="text-[#ce9178]">{credentialId}</span></p>
               )}
               {skills && (
                 <p className="text-[#858585] text-[11px]">
@@ -67,7 +67,7 @@ const NotebookCell = ({ index, code, title, issuer, date, credentialId, skills, 
 
 export default function CertificationsPreview() {
   const [typedCode, setTypedCode] = useState('');
-  const targetCode = "import certifications\ncertifications.load_credentials(filter='VERIFIED')\ncertifications.display_all()";
+  const targetCode = "import certifications\ncertifications.load_credentials(filter='VERIFIED', sort='DESC')";
   const [typingIndex, setTypingIndex] = useState(0);
 
   useEffect(() => {
@@ -80,106 +80,77 @@ export default function CertificationsPreview() {
     }
   }, [typingIndex]);
 
+  // Certificates sorted in decreasing chronological order (newest first)
   const certificationsList = [
     {
       index: "2",
       code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'W96SVXIZ30SM'</span>)<br/>cert.display()`,
       title: "Deployment and DevOps",
-      issuer: "Microsoft",
-      date: "May 2026",
+      issuer: "Microsoft (Coursera)",
+      date: "May 29, 2026",
       credentialId: "W96SVXIZ30SM",
-      skills: "DevOps, Deployment",
-      link: "https://www.coursera.org/account/accomplishments/verify/W96SVXIZ30SM"
+      skills: "DevOps, Continuous Deployment, Azure Workflows",
+      link: "https://coursera.org/verify/W96SVXIZ30SM"
     },
     {
       index: "3",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-ba1d0f2c-eab4-464d-8a7d-b5777a47a1d1'</span>)<br/>cert.display()`,
-      title: "Data Analyst: Professional Certificate in Data Analysis",
+      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-c63e9668-6f26-487d-a95b-acd6f4ac8501'</span>)<br/>cert.display()`,
+      title: "Secure Code in Java and Spring Boot: Build Resilient Apps",
       issuer: "Udemy",
-      date: "Oct 2025",
-      credentialId: "UC-ba1d0f2c-eab4-464d-8a7d-b5777a47a1d1",
-      skills: "Data Analysis",
-      link: "https://www.udemy.com/certificate/UC-ba1d0f2c-eab4-464d-8a7d-b5777a47a1d1/"
+      date: "Nov 22, 2025",
+      credentialId: "UC-c63e9668-6f26-487d-a95b-acd6f4ac8501",
+      skills: "Java, Spring Boot, Spring Security, App Security",
+      link: "https://ude.my/UC-c63e9668-6f26-487d-a95b-acd6f4ac8501"
     },
     {
       index: "4",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-c63e9668-6f26-487d-a95b-acd6f487a4ac8501'</span>)<br/>cert.display()`,
-      title: "Secure Code in Java and Spring Boot: Build Resilient Apps",
-      issuer: "Udemy",
-      date: "Nov 2025",
-      credentialId: "UC-c63e9668-6f26-487d-a95b-acd6f487a4ac8501",
-      skills: "Java, Spring Framework, Spring Security",
-      link: "https://www.udemy.com/certificate/UC-c63e9668-6f26-487d-a95b-acd6f487a4ac8501/"
+      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-ba1d0f2c-eab4-464d-8a7d-b5777a47a1d1'</span>)<br/>cert.display()`,
+      title: "Data Analyst: Professional Certificate in Data Analysis",
+      issuer: "Udemy (MTF Institute)",
+      date: "Oct 30, 2025",
+      credentialId: "UC-ba1d0f2c-eab4-464d-8a7d-b5777a47a1d1",
+      skills: "Data Analysis, Business Intelligence, Data Analytics",
+      link: "https://ude.my/UC-ba1d0f2c-eab4-464d-8a7d-b5777a47a1d1"
     },
     {
       index: "5",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'AWS-CCP'</span>)<br/>cert.display()`,
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "Apr 2026",
-      credentialId: "AWS-CCP-992",
-      skills: "Cloud Computing, Amazon Web Services",
-      link: "https://aws.amazon.com/verification"
+      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'45OKX8CRLWF7'</span>)<br/>cert.display()`,
+      title: "Introduction to MongoDB",
+      issuer: "MongoDB Inc. (Coursera)",
+      date: "Oct 16, 2025",
+      credentialId: "45OKX8CRLWF7",
+      skills: "MongoDB, NoSQL Databases, Document Querying",
+      link: "https://coursera.org/verify/45OKX8CRLWF7"
     },
     {
       index: "6",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-java-master'</span>)<br/>cert.display()`,
-      title: "Java Programming Masterclass",
-      issuer: "Udemy",
-      date: "Jun 2025",
-      credentialId: "UC-java-masterclass-2025",
-      skills: "Java, OOP, Core Programming",
-      link: "https://www.udemy.com"
+      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'VNVEVWFK2VO8'</span>)<br/>cert.display()`,
+      title: "Advanced React",
+      issuer: "Meta (Coursera)",
+      date: "Aug 24, 2025",
+      credentialId: "VNVEVWFK2VO8",
+      skills: "React.js, Advanced Hooks, Component Architecture, State Management",
+      link: "https://coursera.org/verify/VNVEVWFK2VO8"
     },
     {
       index: "7",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-spring-boot'</span>)<br/>cert.display()`,
-      title: "Spring Boot & Spring Framework Masterclass",
-      issuer: "Udemy",
-      date: "Aug 2025",
-      credentialId: "UC-spring-framework-boot",
-      skills: "Spring Boot, REST APIs, JPA/Hibernate",
-      link: "https://www.udemy.com"
+      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'9WC94D7KABK3'</span>)<br/>cert.display()`,
+      title: "Supervised Machine Learning: Regression and Classification",
+      issuer: "DeepLearning.AI & Stanford University (Coursera)",
+      date: "Jun 7, 2025",
+      credentialId: "9WC94D7KABK3",
+      skills: "Supervised Learning, Linear/Logistic Regression, Scikit-Learn",
+      link: "https://coursera.org/verify/9WC94D7KABK3"
     },
     {
       index: "8",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-react-guide'</span>)<br/>cert.display()`,
-      title: "React - The Complete Guide (incl Hooks, React Router, Redux)",
+      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-5e22fc58-b023-4d87-be50-2ac2d6a3c297'</span>)<br/>cert.display()`,
+      title: "Complete Ethical Hacking Bootcamp",
       issuer: "Udemy",
-      date: "Sep 2025",
-      credentialId: "UC-react-guide-redux",
-      skills: "React, Hooks, State Management",
-      link: "https://www.udemy.com"
-    },
-    {
-      index: "9",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-docker-kube'</span>)<br/>cert.display()`,
-      title: "Docker & Kubernetes: The Practical Guide",
-      issuer: "Udemy",
-      date: "Feb 2026",
-      credentialId: "UC-docker-kubernetes-guide",
-      skills: "Containers, Docker, Kubernetes orchestration",
-      link: "https://www.udemy.com"
-    },
-    {
-      index: "10",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-git-bootcamp'</span>)<br/>cert.display()`,
-      title: "Git & GitHub BootCamp",
-      issuer: "Udemy",
-      date: "Mar 2025",
-      credentialId: "UC-git-github-bootcamp",
-      skills: "Git, GitHub, Version Control",
-      link: "https://www.udemy.com"
-    },
-    {
-      index: "11",
-      code: `<span class="text-[#569cd6]">cert</span> = fetch_credential(id=<span class="text-[#ce9178]">'UC-postgres-bootcamp'</span>)<br/>cert.display()`,
-      title: "PostgreSQL BootCamp: Go from Hero to SQL Expert",
-      issuer: "Udemy",
-      date: "Jul 2025",
-      credentialId: "UC-postgres-sql-expert",
-      skills: "SQL, Database Management, Query Optimization",
-      link: "https://www.udemy.com"
+      date: "Jan 7, 2025",
+      credentialId: "UC-5e22fc58-b023-4d87-be50-2ac2d6a3c297",
+      skills: "Ethical Hacking, Cybersecurity, Penetration Testing",
+      link: "https://ude.my/UC-5e22fc58-b023-4d87-be50-2ac2d6a3c297"
     }
   ];
 
@@ -192,7 +163,7 @@ export default function CertificationsPreview() {
             <span className="bg-[#e37933] text-white text-[10px] font-bold px-2 py-0.5 rounded-sm">JUPYTER</span>
             <span className="text-[#cccccc] font-mono text-sm">certifications.ipynb</span>
           </div>
-          <p className="text-[#858585] text-sm">Python 3.10.12 | Verified Credentials Output</p>
+          <p className="text-[#858585] text-sm">Python 3.10.12 | Verified Credentials Output (Sorted: Descending Date)</p>
         </div>
 
         {/* Typing Input Cell at the very top */}
