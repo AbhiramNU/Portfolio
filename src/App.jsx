@@ -10,7 +10,7 @@ function App() {
   return (
     <TabProvider>
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 border-[1.5px] border-vs-accent pointer-events-none z-[9999] rounded-sm hidden md:flex items-center justify-center mix-blend-difference"
+        className="fixed top-0 left-0 w-6 h-6 border-[1.5px] border-vs-accent pointer-events-none z-[999999] rounded-sm hidden md:flex items-center justify-center mix-blend-difference"
         style={{
           x,
           y,
