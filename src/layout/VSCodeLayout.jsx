@@ -7,6 +7,8 @@ import StatusBar from '../components/StatusBar';
 import Editor from '../editor/Editor';
 import Terminal from '../components/Terminal';
 import SearchModal from '../components/SearchModal';
+import AccountModal from '../components/AccountModal';
+import SettingsModal from '../components/SettingsModal';
 import { useTabs } from '../hooks/useTabs';
 
 export default function VSCodeLayout() {
@@ -15,6 +17,9 @@ export default function VSCodeLayout() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
   const { openFile } = useTabs();
 
   const toggleActivityTab = (tab) => {
@@ -44,6 +49,8 @@ export default function VSCodeLayout() {
            onSearchClick={() => setIsSearchOpen(true)}
            onCopilotClick={() => setIsAssistantOpen(true)}
            onDownloadClick={() => openFile('Abhiram_N_Udupa_Resume.pdf')}
+           onAccountClick={() => setIsAccountOpen(true)}
+           onSettingsClick={() => setIsSettingsOpen(true)}
         />
         <Sidebar isOpen={isSidebarOpen && activeActivityTab === 'files'} onCopilotClick={() => setIsAssistantOpen(true)} />
         <div className="flex-1 flex flex-col min-w-0">
@@ -57,6 +64,8 @@ export default function VSCodeLayout() {
         isAssistantOpen={isAssistantOpen} 
       />
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <AccountModal isOpen={isAccountOpen} onClose={() => setIsAccountOpen(false)} />
+      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
     </div>
   );
 }
