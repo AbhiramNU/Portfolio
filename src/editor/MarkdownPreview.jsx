@@ -1,116 +1,126 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, Sparkles, Terminal, Code, Cpu, Globe } from 'lucide-react';
 
 export default function MarkdownPreview() {
   return (
     <div className="flex-1 w-full h-full bg-[#1e1e1e] overflow-y-auto text-[#d4d4d4] font-sans custom-scrollbar">
       <div className="max-w-4xl mx-auto py-16 px-6 lg:px-12">
+        
+        {/* Header */}
         <h1 
-          className="text-[42px] lg:text-[54px] font-black text-white tracking-[-0.04em] mb-4 leading-none"
+          className="text-[42px] lg:text-[54px] font-black text-white tracking-[-0.04em] mb-3 leading-none"
           style={{ fontFamily: "'Arial Black', 'Impact', sans-serif" }}
         >
           Abhiram N Udupa
         </h1>
         
-        <p className="text-[#858585] text-sm mb-6 flex items-center font-mono tracking-tight pb-6 border-b border-[#3c3c3c]">
-          Junior Software Developer @ NMAMIT · India IN
+        <p className="text-[#4ec9b0] text-sm mb-6 flex items-center font-mono tracking-tight pb-6 border-b border-[#3c3c3c]">
+          Full-Stack & AI/ML Developer · Software Engineering Intern @ Sahasranshu Technologies · NMAMIT
         </p>
 
-        <div className="flex flex-wrap gap-3 mb-10">
-          <span className="flex items-center px-2 py-1 text-[11px] font-semibold border border-[#3776ab] text-[#3776ab] rounded hover:bg-[#3776ab]/10 cursor-pointer transition-colors bg-[#3776ab]/5">
-            <span className="mr-2 text-[#3776ab] text-[14px]">●</span> Python
+        {/* Quick Tech Badges */}
+        <div className="flex flex-wrap gap-2.5 mb-10">
+          <span className="flex items-center px-2.5 py-1 text-[11px] font-semibold border border-[#3776ab] text-[#3776ab] rounded bg-[#3776ab]/10 font-mono">
+            ● Python
           </span>
-          <span className="flex items-center px-2 py-1 text-[11px] font-semibold border border-[#3178c6] text-[#3178c6] rounded hover:bg-[#3178c6]/10 cursor-pointer transition-colors bg-[#3178c6]/5">
-            <span className="mr-2 text-[#3178c6] text-[14px]">♦</span> TypeScript
+          <span className="flex items-center px-2.5 py-1 text-[11px] font-semibold border border-[#3178c6] text-[#3178c6] rounded bg-[#3178c6]/10 font-mono">
+            ♦ TypeScript
           </span>
-          <span className="flex items-center px-2 py-1 text-[11px] font-semibold border border-[#009688] text-[#009688] rounded hover:bg-[#009688]/10 cursor-pointer transition-colors bg-[#009688]/5">
-            <span className="mr-2 text-[#009688] text-[14px]">⚡</span> FastAPI
+          <span className="flex items-center px-2.5 py-1 text-[11px] font-semibold border border-[#61dafb] text-[#61dafb] rounded bg-[#61dafb]/10 font-mono">
+            ⚛ React 18
           </span>
-          <span className="flex items-center px-2 py-1 text-[11px] font-semibold border border-[#d24982] text-[#d24982] rounded hover:bg-[#d24982]/10 cursor-pointer transition-colors bg-[#d24982]/5">
-            <span className="mr-2 text-[#d24982] text-[14px]">●</span> LangChain
+          <span className="flex items-center px-2.5 py-1 text-[11px] font-semibold border border-[#009688] text-[#009688] rounded bg-[#009688]/10 font-mono">
+            ⚡ FastAPI & Node.js
           </span>
-          <span className="flex items-center px-2 py-1 text-[11px] font-semibold border border-[#ee4c2c] text-[#ee4c2c] rounded hover:bg-[#ee4c2c]/10 cursor-pointer transition-colors bg-[#ee4c2c]/5">
-            <span className="mr-2 text-[#ee4c2c] text-[14px]">✔</span> PyTorch
+          <span className="flex items-center px-2.5 py-1 text-[11px] font-semibold border border-[#ee4c2c] text-[#ee4c2c] rounded bg-[#ee4c2c]/10 font-mono">
+            🧠 TensorFlow & OpenCV
           </span>
         </div>
 
+        {/* About Section */}
         <h2 className="text-[22px] font-bold flex items-center text-white mb-4">
           <Heart fill="#a855f7" strokeWidth={0} className="text-[#a855f7] mr-3" size={20} /> 
-          About
+          About Me
         </h2>
         
-        <p className="text-[#858585] text-[12px] leading-relaxed mb-6 font-mono max-w-3xl">
-          Hi, Abhiram on this side! I am an aspiring computer engineer and am curious to learn new things about life every day! Perfection is something I always aim for. Being big on integrity and authenticity is something I always believe in. I enjoy painting, photography, designing, and editing. Growing up, I have always loved spending quality time making music on the keyboard. Glad to see you, cheers!
+        <p className="text-[#cccccc] text-[13px] leading-relaxed mb-6 font-mono max-w-3xl">
+          Hi, I'm Abhiram! I am a full-stack and AI/ML software engineer passionate about building high-performance, real-time intelligence platforms, computer vision applications, and responsive web systems. I am big on engineering integrity, clean architecture, and delivering polished, production-grade applications.
         </p>
 
-        <ul className="text-[#858585] text-[12px] space-y-2.5 font-mono mb-14">
-          <li className="flex items-center"><span className="mr-3 text-[14px]">🔭</span> Building <span className="text-white font-bold mx-1">scalable AI integrations</span> at NMAMIT</li>
-          <li className="flex items-center"><span className="mr-3 text-[14px]">🧠</span> NLP, LLMs, RAG pipelines, Vector DBs</li>
-          <li className="flex items-center"><span className="mr-3 text-[14px]">⚡</span> Making data stories non-data people get</li>
-          <li className="flex items-center"><span className="mr-3 text-[14px]">📫</span> Always learning, always shipping</li>
+        <ul className="text-[#858585] text-[12px] space-y-2.5 font-mono mb-12">
+          <li className="flex items-center"><span className="mr-3 text-[14px]">🔭</span> Currently building <strong className="text-white mx-1">defence & critical-infrastructure intelligence platforms</strong> at Sahasranshu Technologies.</li>
+          <li className="flex items-center"><span className="mr-3 text-[14px]">🧠</span> Specialized in <strong className="text-white mx-1">Computer Vision (OpenCV, MediaPipe, FaceNet)</strong>, ML forecasting, and LLM integrations.</li>
+          <li className="flex items-center"><span className="mr-3 text-[14px]">⚡</span> Full-stack web development with <strong className="text-white mx-1">React, Node.js, Express, FastAPI, Spring Boot, & PostgreSQL / MongoDB / SQLite</strong>.</li>
+          <li className="flex items-center"><span className="mr-3 text-[14px]">📫</span> Passionate about photography, music synthesis, and shipping clean software.</li>
         </ul>
 
-        {/* Stack */}
-        <h2 className="text-[24px] font-bold text-white mb-6" style={{ fontFamily: "'Arial Black', 'Impact', sans-serif" }}>Stack</h2>
+        {/* Technical Stack Section */}
+        <h2 className="text-[24px] font-bold text-white mb-6" style={{ fontFamily: "'Arial Black', 'Impact', sans-serif" }}>Technical Stack</h2>
         
-        <div className="flex flex-col space-y-3 font-mono text-[11px] mb-14">
-          <div className="flex items-center">
-            <div className="w-[100px] text-[#cccccc] font-bold">Languages:</div>
-            <div className="flex flex-wrap gap-2 text-[#a0a0a0]">
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Python</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">TypeScript</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">SQL</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">JavaScript</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Java</span>
+        <div className="flex flex-col space-y-4 font-mono text-[12px] mb-14 bg-[#252526] p-6 rounded-xl border border-[#3c3c3c]">
+          <div className="flex flex-col sm:flex-row sm:items-center">
+            <div className="w-[120px] text-[#4ec9b0] font-bold mb-1 sm:mb-0">Languages:</div>
+            <div className="flex flex-wrap gap-2 text-[#cccccc]">
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Python</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">TypeScript</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">JavaScript</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">SQL</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Java</span>
             </div>
           </div>
-          <div className="flex items-center">
-            <div className="w-[100px] text-[#cccccc] font-bold">AI / ML:</div>
-            <div className="flex flex-wrap gap-2 text-[#a0a0a0]">
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">PyTorch</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">LangChain</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">HuggingFace</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">scikit-learn</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">TensorFlow</span>
+
+          <div className="flex flex-col sm:flex-row sm:items-center">
+            <div className="w-[120px] text-[#ce9178] font-bold mb-1 sm:mb-0">AI / ML & CV:</div>
+            <div className="flex flex-wrap gap-2 text-[#cccccc]">
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">TensorFlow</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">OpenCV 4.x</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">MediaPipe</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">scikit-learn</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">DeepFace (FaceNet)</span>
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Gemini 1.5 Flash</span>
             </div>
           </div>
-          <div className="flex items-center">
-            <div className="w-[100px] text-[#cccccc] font-bold">Backend:</div>
-            <div className="flex flex-wrap gap-2 text-[#a0a0a0]">
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">FastAPI</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Flask</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Django</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">PostgreSQL</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Redis</span>
+
+          <div className="flex flex-col sm:flex-row sm:items-center">
+            <div className="w-[120px] text-[#569cd6] font-bold mb-1 sm:mb-0">Full-Stack:</div>
+            <div className="flex flex-wrap gap-2 text-[#cccccc]">
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">React 18</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Node.js</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Express</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">FastAPI</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Spring Boot</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">MongoDB</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">MySQL</span>
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">SQLite</span>
             </div>
           </div>
-          <div className="flex items-center">
-            <div className="w-[100px] text-[#cccccc] font-bold">DevOps:</div>
-            <div className="flex flex-wrap gap-2 text-[#a0a0a0]">
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Docker</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">AWS</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Linux</span> 
-              <span className="bg-[#2d2d2d] border border-[#3c3c3c] px-2 py-0.5 rounded-[2px]">Git</span>
+
+          <div className="flex flex-col sm:flex-row sm:items-center">
+            <div className="w-[120px] text-[#c586c0] font-bold mb-1 sm:mb-0">DevOps & Tools:</div>
+            <div className="flex flex-wrap gap-2 text-[#cccccc]">
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Vercel</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Render</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Supabase</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Docker</span> 
+              <span className="bg-[#1e1e1e] border border-[#3c3c3c] px-2.5 py-1 rounded">Git & GitHub</span>
             </div>
           </div>
         </div>
 
-        {/* Connect */}
+        {/* Connect Section */}
         <h2 className="text-[24px] font-bold text-white mb-6" style={{ fontFamily: "'Arial Black', 'Impact', sans-serif" }}>Connect</h2>
         
-        <div className="font-mono text-[12px] space-y-3 mb-24 text-[#858585]">
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Email:</span> <a href="mailto:abhiram.udupa@gmail.com" className="text-white font-bold hover:underline">abhiram.udupa@gmail.com</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Github:</span> <a href="https://github.com/AbhiramNU" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">AbhiramNU</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">LinkedIn:</span> <a href="https://linkedin.com/in/abhiramnu" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiramnu</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Medium:</span> <a href="https://medium.com/@abhiram.udupa" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhiram.udupa</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">LeetCode:</span> <a href="https://leetcode.com/u/AbhiramNU/" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">AbhiramNU</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">Instagram:</span> <a href="https://www.instagram.com/abhi_udupa00" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">abhi_udupa00</a></div>
-          <div className="flex items-center"><span className="w-24 text-[#cccccc]">X (Twitter):</span> <a href="https://x.com/narendramodi" target="_blank" rel="noreferrer" className="text-white font-bold hover:underline">narendramodi</a></div>
+        <div className="font-mono text-[13px] space-y-3 mb-20 text-[#858585]">
+          <div className="flex items-center"><span className="w-28 text-[#cccccc] font-semibold">Email:</span> <a href="mailto:abhiram.udupa@gmail.com" className="text-white font-bold hover:underline">abhiram.udupa@gmail.com</a></div>
+          <div className="flex items-center"><span className="w-28 text-[#cccccc] font-semibold">GitHub:</span> <a href="https://github.com/AbhiramNU" target="_blank" rel="noreferrer" className="text-[#4ec9b0] font-bold hover:underline">github.com/AbhiramNU</a></div>
+          <div className="flex items-center"><span className="w-28 text-[#cccccc] font-semibold">LinkedIn:</span> <a href="https://linkedin.com/in/abhiramnu" target="_blank" rel="noreferrer" className="text-[#4ec9b0] font-bold hover:underline">linkedin.com/in/abhiramnu</a></div>
+          <div className="flex items-center"><span className="w-28 text-[#cccccc] font-semibold">Medium:</span> <a href="https://medium.com/@abhiram.udupa" target="_blank" rel="noreferrer" className="text-[#4ec9b0] font-bold hover:underline">medium.com/@abhiram.udupa</a></div>
+          <div className="flex items-center"><span className="w-28 text-[#cccccc] font-semibold">LeetCode:</span> <a href="https://leetcode.com/u/AbhiramNU/" target="_blank" rel="noreferrer" className="text-[#4ec9b0] font-bold hover:underline">leetcode.com/u/AbhiramNU</a></div>
         </div>
 
         {/* Footer */}
-        <div className="w-full flex justify-center pb-8 border-t border-[#3c3c3c] pt-12 items-center text-[#858585] text-[11px] font-mono tracking-widest">
-           Made with <span className="text-white text-[10px] mx-2">🤍</span> by Abhiram · 2026
+        <div className="w-full flex justify-center pb-8 border-t border-[#3c3c3c] pt-10 items-center text-[#858585] text-[11px] font-mono tracking-widest">
+           Built with <span className="text-white text-[10px] mx-2">🤍</span> by Abhiram N Udupa · 2026
         </div>
 
       </div>

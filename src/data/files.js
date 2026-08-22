@@ -209,9 +209,25 @@ export default Home;`
   {
     name: 'README.md',
     type: 'markdown',
-    content: `# Abhiram's Portfolio
+    content: `# Abhiram N Udupa - Full-Stack & AI/ML Software Developer
 
-Welcome to my interactive developer portfolio.`
+Software Development Intern @ Sahasranshu Technologies · Computer Science with minor in AI/ML @ NMAMIT.
+
+## Primary Projects:
+1. **Sahasranshu Technologies Corporate Website** (React 18, TypeScript, Vite, Tailwind CSS, TanStack Router, Vercel)
+2. **Parixa - AI-Powered Secure Assessment Platform** (Node.js, Express, MongoDB, React, Vercel)
+3. **VoltStrata: AI-Driven Smart Grid Energy Intelligence Platform** (Python, FastAPI, Scikit-Learn, Random Forest, React, Astro)
+4. **SentriCam: AI-Powered Real-Time Biometric Surveillance System** (Python, TensorFlow, OpenCV 4.x, DeepFace, Flask, SQLite)
+5. **ConvoLens: AI-Powered WhatsApp Chat Analyzer** (React 18, TypeScript, Supabase Edge Functions, Gemini 1.5 Flash)
+6. **ColorCraft: Efficient Image Colorization Web App** (React, Spring Boot, Python Flask, OpenCV DNN, MySQL)
+7. **GitAIR 🎸: Vision-Based Guitar Chord Recognition** (Python, OpenCV, MediaPipe, scikit-learn, pygame)
+
+## Connect & Contact:
+- **Email:** abhiram.udupa@gmail.com
+- **GitHub:** https://github.com/AbhiramNU
+- **LinkedIn:** https://linkedin.com/in/abhiramnu
+- **Medium:** https://medium.com/@abhiram.udupa
+- **LeetCode:** https://leetcode.com/u/AbhiramNU/`
   },
   {
     name: 'Abhiram_N_Udupa_Resume.pdf',
